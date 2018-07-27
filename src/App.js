@@ -26,6 +26,7 @@ class Header extends React.Component {
     render(){
         return (
             <p>Some Text</p>
+            <div>Еще дополнительный блок</div>
         );
     }
 }
