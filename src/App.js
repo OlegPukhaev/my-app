@@ -22,6 +22,14 @@ class ModalWin extends React.Component {
     }
 }
 
+class Header extends React.Component {
+    render(){
+        return (
+            <p>Some Text</p>
+        );
+    }
+}
+
 // class App extends Component {
 //   render() {
 //     return (
