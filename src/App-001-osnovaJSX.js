@@ -11,6 +11,7 @@ class App extends Component {
   getName (lastname){
     return "My cat name Un " + lastname;
   }
+  
   render() {
     var myname ="Oleg";
     var i = 8;
