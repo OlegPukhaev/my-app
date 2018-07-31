@@ -16,13 +16,42 @@ class ModalHeader extends React.Component {
 
 {/*Футер модального окна с кнопками */}
 class ModalFooter extends React.Component {
+  constructor (props) {
+    super(props)
+    this.handleClick = this.handleClick.bind(this)
+    this.state = {counter : 0} //Устанавливаем счетчик кликов
+  }
+
+  handleClick () {
+    this.setState ({counter: ++this.state.counter})
+  }
+
+
   render () {
     return (
       <div class="modal-footer">
+        <Text counter = {this.state.counter}/>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">{this.props.modbutton}</button>
+        <Button 
+          // counter = {this.state.counter}  
+          handler = {this.handleClick}
+          name = {this.props.modbut}
+
+        />
     </div>
     );
+  }
+}
+
+class Button extends React.Component {
+  render () {
+    return <button type="button" class="btn btn-primary" onClick={this.props.handler}>Click me</button>
+  }
+}
+
+class Text extends React.Component {
+  render () {
+    return <div>Already clicked {this.props.counter}</div>
   }
 }
 
@@ -46,8 +75,8 @@ class ModalWin extends React.Component {
 
     constructor () {
       super();
-      this.title = "Окно по умолчанию"; 
-      this.modbut = "Sign In";
+      this.title = "Введите Имя пользователя"; 
+      // this.modbut = "Sign In";
     }
 
   
@@ -59,7 +88,7 @@ class ModalWin extends React.Component {
                 <div class="modal-content">
                     <ModalHeader title={this.title} />{/*Заголовок модального окна */}
                     <ModalContent />
-                    <ModalFooter modbutton = {this.modbut}/>{/*Футер модального окна с кнопками */}
+                    <ModalFooter />{/*Футер модального окна с кнопками */}
                 </div>
               </div>
             </div>
