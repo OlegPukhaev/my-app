@@ -26,6 +26,22 @@ class ModalFooter extends React.Component {
   }
 }
 
+{/*Область контента модального окна*/}
+class ModalContent extends React.Component {
+  render () {
+    return (
+      <div class="modal-body">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1">@</span>
+            </div>
+            <input type="text" class="form-control" placeholder="Имя пользователя" aria-label="Имя пользователя" aria-describedby="basic-addon1" />
+          </div>
+      </div>
+    );
+  }
+}
+
 class ModalWin extends React.Component {
 
     constructor () {
@@ -34,16 +50,16 @@ class ModalWin extends React.Component {
       this.modbut = "Sign In";
     }
 
+  
+
     render (){
         return (
             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div class="modal-dialog" role="document">
                 <div class="modal-content">
-                   <ModalHeader title={this.title} />{/*Заголовок модального окна */}
-                      <div class="modal-body">
-                        ...
-                      </div>
-                  <ModalFooter modbutton = {this.modbut}/>{/*Футер модального окна с кнопками */}
+                    <ModalHeader title={this.title} />{/*Заголовок модального окна */}
+                    <ModalContent />
+                    <ModalFooter modbutton = {this.modbut}/>{/*Футер модального окна с кнопками */}
                 </div>
               </div>
             </div>
