@@ -1,6 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import './style.css';
+import './bootstrap.css';
+// import './jquery321.js';
+// import './popper.js';
+// import './bootstrap.js';
+
 import App from './App';
 // import Hello from './App';
 import registerServiceWorker from './registerServiceWorker';
@@ -8,20 +14,7 @@ import registerServiceWorker from './registerServiceWorker';
 // ReactDOM.render(<App />, document.getElementById('root'));
 // registerServiceWorker();
 
-// function Hello(props){//Функциональный компонент
-//   return <h1>Hello, {props.name}</h1>;
-// }
 
-// function App(){
-//   return (
-//     <div>
-//       <Hello name="Oleg" />
-//       <Hello name="Kate" />
-//       <Hello name="Dima" />
-//       <Hello name="Lisa" />
-//     </div>
-//   );
-// }
 
 //const elem = <Hello name="alex" />
 ReactDOM.render(

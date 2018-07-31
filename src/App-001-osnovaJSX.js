@@ -2,8 +2,26 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+
+// function Hello(props){//Функциональный компонент
+//   return <h1>Hello, {props.name}</h1>;
+// }
+
+// function App(){
+//   return (
+//     <div>
+//       <Hello name="Oleg" />
+//       <Hello name="Kate" />
+//       <Hello name="Dima" />
+//       <Hello name="Lisa" />
+//     </div>
+//   );
+// }
+
+
 class App extends Component {
-  constructor (){
+
+  constructor () {
     super();
     this.name = "Dima and Lisa";
   }
@@ -13,12 +31,12 @@ class App extends Component {
   }
   
   render() {
-    var myname ="Oleg";
-    var i = 8;
-    var myStyle = {
-      color : 'green',
-      fontSize: 50
-    }
+      var myname ="Oleg";
+      var i = 8;
+      var myStyle = {
+            color : 'green',
+            fontSize: 50
+          }
 
 
     return (

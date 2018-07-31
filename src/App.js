@@ -4,6 +4,7 @@ import './App.css';
 import ModalWin from './modalwin/Modalwin.js';
 
 class App extends Component {
+
   render() {
     return (
         <div>
