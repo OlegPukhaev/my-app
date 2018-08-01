@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Button from '.././buttons/Buttons.js';
+import Username from '.././forms/Username.js';
 
 {/*Заголовок модального окна */}
 class ModalHeader extends React.Component {
@@ -18,19 +20,18 @@ class ModalHeader extends React.Component {
 class ModalFooter extends React.Component {
   constructor (props) {
     super(props)
-    this.handleClick = this.handleClick.bind(this)
+    this.handleClick = this.handleClick.bind(this)//обозначаем bind(this) чтобы в будущем не писать в кнопках и т.д.
     this.state = {counter : 0} //Устанавливаем счетчик кликов
   }
 
-  handleClick () {
+  handleClick () { //Счетчик кликов, наращиваем клики
     this.setState ({counter: ++this.state.counter})
   }
-
 
   render () {
     return (
       <div class="modal-footer">
-        <Text counter = {this.state.counter}/>
+        <Text counter = {this.state.counter}/> 
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <Button 
           // counter = {this.state.counter}  
@@ -43,11 +44,6 @@ class ModalFooter extends React.Component {
   }
 }
 
-class Button extends React.Component {
-  render () {
-    return <button type="button" class="btn btn-primary" onClick={this.props.handler}>Click me</button>
-  }
-}
 
 class Text extends React.Component {
   render () {
@@ -61,10 +57,11 @@ class ModalContent extends React.Component {
     return (
       <div class="modal-body">
           <div class="input-group mb-3">
-            <div class="input-group-prepend">
+            <Username />
+            {/* <div class="input-group-prepend">
               <span class="input-group-text" id="basic-addon1">@</span>
             </div>
-            <input type="text" class="form-control" placeholder="Имя пользователя" aria-label="Имя пользователя" aria-describedby="basic-addon1" />
+            <input type="text" class="form-control" placeholder="Имя пользователя" aria-label="Имя пользователя" aria-describedby="basic-addon1" /> */}
           </div>
       </div>
     );
@@ -79,8 +76,6 @@ class ModalWin extends React.Component {
       // this.modbut = "Sign In";
     }
 
-  
-
     render (){
         return (
             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -88,7 +83,7 @@ class ModalWin extends React.Component {
                 <div class="modal-content">
                     <ModalHeader title={this.title} />{/*Заголовок модального окна */}
                     <ModalContent />
-                    <ModalFooter />{/*Футер модального окна с кнопками */}
+                    {/* <ModalFooter /> */}
                 </div>
               </div>
             </div>
