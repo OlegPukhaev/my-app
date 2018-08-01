@@ -9,7 +9,6 @@ class Username extends React.Component {
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
-
     
     // изменение состояни
     handleChange(event) {
@@ -18,16 +17,11 @@ class Username extends React.Component {
 
     // событие нажать кнопку submit
     handleSubmit(event) { 
-        //alert('A name was submitted: ' + this.state.value);
-        SaveData(this.state.value, "Username");
-        event.preventDefault();
-        // this.closeModal;
-        //document.getElementsByClassName('modal').style.display = "none";        
+        if (this.state.value != ""){
+            SaveData(this.state.value, "Username");
+            event.preventDefault();
+        }
     }
-
-    // closeModal (vent){
-    //     $('#exampleModal').modal('hide');
-    // }
 
     render () {
       return (
