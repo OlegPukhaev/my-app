@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 import SaveData from '.././functions/Functions.js';
 
 class Username extends React.Component {
@@ -19,6 +20,9 @@ class Username extends React.Component {
     handleSubmit(event) { 
         if (this.state.value != ""){
             SaveData(this.state.value, "Username");
+            ReactDOM.render(
+                'User: ' + this.state.value, document.getElementById('navusername')
+            );
             event.preventDefault();
         }
     }

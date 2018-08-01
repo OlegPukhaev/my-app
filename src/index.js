@@ -1,11 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import './style.css';
-import './bootstrap.css';
-// import './jquery321.js';
-// import './popper.js';
-// import './bootstrap.js';
 
 import App from './App';
 // import Hello from './App';
