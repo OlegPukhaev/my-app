@@ -31,7 +31,7 @@ class ModalFooter extends React.Component {
   render () {
     return (
       <div class="modal-footer">
-        <Text counter = {this.state.counter}/> 
+        {/* <Text counter = {this.state.counter}/>  */}
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <Button 
           // counter = {this.state.counter}  
@@ -41,13 +41,6 @@ class ModalFooter extends React.Component {
         />
     </div>
     );
-  }
-}
-
-
-class Text extends React.Component {
-  render () {
-    return <div>Already clicked {this.props.counter}</div>
   }
 }
 

@@ -1,44 +1,49 @@
 import React, { Component } from 'react';
-// import '../../src/bootstrap.css';
-// import '../../src/style.css';
-// import getCards from '.././functions/Functions.js';
-
-// Карточка с заданием
-class Card extends React.Component {
-    render () {
-        return (
-            <div class="card mt-1">
-            <div class="card-body">
-                <p class="card-title cardstyle">{this.props.title}</p>
-                <a href="#" class="card-link">Comments 0</a>
-            </div>
-            </div>
-        );
-    }
-}
+import ReactDOM from 'react-dom';
+import Cards from '.././card/Cards.js';
+import TextArea from '.././input/Input.js';
 
 // Колонки с определенными заданиями
 class Column extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.handlerClick = this.handlerClick.bind(this);
+    }
 
     getCards(localkey) {//Возвращает объект карточки по ключу localkey в localstorage
         const returnObj = JSON.parse(localStorage.getItem(localkey));
       return returnObj;
     }
 
+    CardsList(props) {//Возвращает список карточек
+        var cards = props;
+        var listItems = cards.map((number, index) =>
+            <Cards title={number} mykey={index} />  
+        );
+        return (
+            <div>
+                {listItems}
+            </div>
+        );
+    }
+
+    handlerClick (event) {
+        ReactDOM.render(
+            <TextArea />, document.getElementById(event.target.id)
+        );
+    }
+
     render () {
-        
         var coll = this.props.colname;
         var myobj = this.getCards(coll);
-        // alert(myobj.colname);
+        var cardselem = this.CardsList(myobj.cards);
         return (
             <div class="col-2 border rounded bg-light ml-1">
-                <h4 class="centered">{myobj.colname} </h4>
-
-                    <Card title={myobj.cards[0]} />
-                    <Card title={myobj.cards[1]} />
-                    <Card title={myobj.cards[2]} />
-    
-                <h6 class="p-2">Add a card...</h6>
+                <div class="centered" id={coll} onClick={this.handlerClick} > {myobj.colname} </div>
+                    {cardselem}
+                <h6 class="p-2">Add a card...</h6> 
+               
           </div>
         );
     }

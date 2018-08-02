@@ -10,6 +10,7 @@ class Mainboard extends React.Component {
             <div class="container-fluid">
                 <div class="row mt-1">
                     <Column colname="tab1" />    
+                      
                 </div>
             </div>
         );
