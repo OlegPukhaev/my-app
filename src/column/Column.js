@@ -7,7 +7,8 @@ import TextArea from '.././input/Input.js';
 class Column extends React.Component {
     constructor(props) {
         super(props);
-
+    
+        this.state = {activeId: null};
         this.handlerClick = this.handlerClick.bind(this);
     }
 
@@ -29,19 +30,26 @@ class Column extends React.Component {
     }
 
     handlerClick (event) {
-        ReactDOM.render(
-            <TextArea />, document.getElementById(event.target.id)
-        );
+        this.setState({activeId: event.target.id})
+
+        //alert(event.target.id);
+        // ReactDOM.render(
+        //     <TextArea />, document.getElementById(event.target.id)
+        // );
     }
 
     render () {
         var coll = this.props.colname;
-        var myobj = this.getCards(coll);
-        var cardselem = this.CardsList(myobj.cards);
+        var cardobj = this.getCards(coll);
+        var cardselem = this.CardsList(cardobj.cards);
         return (
             <div class="col-2 border rounded bg-light ml-1">
-                <div class="centered" id={coll} onClick={this.handlerClick} > {myobj.colname} </div>
-                    {cardselem}
+                <div class="centered" id={coll} onClick={this.handlerClick} >
+                  {cardobj.colname}
+                  {this.state.activeId == coll && <TextArea text={cardobj.colname}/>}
+
+            </div>
+                    {cardselem} 
                 <h6 class="p-2">Add a card...</h6> 
                
           </div>
