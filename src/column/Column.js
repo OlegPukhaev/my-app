@@ -58,14 +58,15 @@ class Column extends React.Component {
             <div class="col-2 border rounded bg-light ml-1">
                 <div class="centered">
                     <h5 id={this.props.colname} onClick={this.handlerClick}>{cardobj.colname}</h5>
-                    {alert(this.state.activeId)}
+                    {/* {alert(this.state.activeId)} */}
                     {this.state.activeId == coll && 
                         <TextArea 
-                            text={cardobj.colname} 
+                            boardname={"Pukhaev"}
+                            cardobj={cardobj} 
                             updateData={this.updateData}
                         />
                     }
-                  {alert(this.state.name)}  
+                  {/* {alert(this.state.name)}   */}
                   {/* <Title text="Ololo" /> */}
                   {/* {this.state.activeId != coll ? cardobj.colname : <TextArea text={cardobj.colname}/>} */}
                   {/* {this.state.activeId == coll ? <TextArea text={cardobj.colname}/> : cardobj.colname} */}
