@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
-// import ReactDOM from 'react-dom';
-// import Cards from '.././card/Cards.js';
 
 class TextArea extends React.Component {
     constructor () {
         super();
 
-        
+        this.clickHandler = this.clickHandler.bind(this);
+    }
+
+    clickHandler () {
+        return null;
     }
 
     render () {
@@ -14,7 +16,7 @@ class TextArea extends React.Component {
             <div>
                 <form>
                     <div class="form-group">
-                        <textarea class="form-control" id="textaria">{this.props.text}</textarea>
+                        <textarea class="form-control" onBlur={this.clickHandler}>{this.props.text}</textarea>
                     </div>
                 </form>
             </div>

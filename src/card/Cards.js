@@ -29,7 +29,7 @@ class Card extends React.Component {
                 <div class="card-body">
                     <p class="card-title cardstyle" id={this.props.mykey} onClick={this.handlerClick}>{this.props.title} + {this.props.mykey}</p>
                     {this.state.activeId == this.props.mykey && <TextArea />}
-                    {this.state.activeId == this.props.mykey ? <TextArea /> : <TextArea />}
+                    {/* {this.state.activeId == this.props.mykey ? <TextArea /> : <TextArea />} */}
                     <a href="#" class="card-link">Comments 0</a>
                 </div>
             </div>
