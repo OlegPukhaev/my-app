@@ -11,6 +11,11 @@ class Title extends React.Component {
 }
 // Колонки с определенными заданиями
 class Column extends React.Component {
+    state = {
+        name: 'Бумеранг вернулся назад'
+      }
+
+
     constructor(props) {
         super(props);
     
@@ -19,7 +24,7 @@ class Column extends React.Component {
     }
 
     updateData = (value) => {
-        this.setState({ name: value })
+        this.setState({ activeId: value });
      }
 
     getCards(localkey) {//Возвращает объект карточки по ключу localkey в localstorage
@@ -42,7 +47,7 @@ class Column extends React.Component {
     handlerClick (event) {
         var board = event.target.id
         this.setState({activeId: event.target.id});
-        alert(event.target.id);
+        // alert(event.target.id);
     }
 
     render () {
@@ -52,8 +57,15 @@ class Column extends React.Component {
         return (
             <div class="col-2 border rounded bg-light ml-1">
                 <div class="centered">
-                  <h5 id={this.props.colname} onClick={this.handlerClick}>{cardobj.colname}</h5>
-                  {this.state.activeId == coll && <TextArea text={cardobj.colname}/>}
+                    <h5 id={this.props.colname} onClick={this.handlerClick}>{cardobj.colname}</h5>
+                    {alert(this.state.activeId)}
+                    {this.state.activeId == coll && 
+                        <TextArea 
+                            text={cardobj.colname} 
+                            updateData={this.updateData}
+                        />
+                    }
+                  {alert(this.state.name)}  
                   {/* <Title text="Ololo" /> */}
                   {/* {this.state.activeId != coll ? cardobj.colname : <TextArea text={cardobj.colname}/>} */}
                   {/* {this.state.activeId == coll ? <TextArea text={cardobj.colname}/> : cardobj.colname} */}

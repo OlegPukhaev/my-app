@@ -1,0 +1,101 @@
+[33mcommit 0637e140dbbd9af462d057da26f34671cf38282d[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: Oleg Pukhaev <nuba8184@gmail.com>
+Date:   Mon Aug 6 09:44:14 2018 +0600
+
+    tmp
+
+[33mcommit fcff559c974b06120201e39f0671501cbdced562[m
+Author: Oleg Pukhaev <nuba8184@gmail.com>
+Date:   Fri Aug 3 14:16:37 2018 +0600
+
+    new binar operator
+
+[33mcommit f2765602101cb667e686020c489d87b08ba73b04[m
+Author: Oleg Pukhaev <nuba8184@gmail.com>
+Date:   Thu Aug 2 19:51:24 2018 +0600
+
+    input form
+
+[33mcommit f1f6c0df3d2937cf8a9b40645cb96e724649b76d[m[33m ([m[1;31morigin/master[m[33m)[m
+Author: Oleg Pukhaev <nuba8184@gmail.com>
+Date:   Thu Aug 2 13:45:42 2018 +0600
+
+    Add onClick event to Column And Cards
+
+[33mcommit 9dc15efdb305693e6f459b2d163f9b50a0d7706f[m
+Author: Oleg Pukhaev <nuba8184@gmail.com>
+Date:   Wed Aug 1 18:47:55 2018 +0600
+
+    Component column and card
+
+[33mcommit 274d7610e3c6a5f668579bd0873ab535d877c35d[m
+Author: Oleg Pukhaev <nuba8184@gmail.com>
+Date:   Wed Aug 1 17:33:18 2018 +0600
+
+    Navigation with rendering name
+
+[33mcommit 96953ef1857df4c711a81f767c99a6b7b3b1a0a0[m
+Author: Oleg Pukhaev <nuba8184@gmail.com>
+Date:   Wed Aug 1 13:26:39 2018 +0600
+
+    Add error on submit
+
+[33mcommit ae042475bd08761ed642cc98610a413bba76bbfe[m
+Author: Oleg Pukhaev <nuba8184@gmail.com>
+Date:   Wed Aug 1 13:09:28 2018 +0600
+
+    Done modal win Username, send Username done
+
+[33mcommit 92e4b7bd8209fb49ec40a51d5df1fb45abde7c69[m
+Author: Oleg Pukhaev <nuba8184@gmail.com>
+Date:   Tue Jul 31 17:06:17 2018 +0600
+
+    Add onClick event and counter
+
+[33mcommit ad970165282bf99aea6a4c4b82ff7090a8ac7a59[m
+Author: Oleg Pukhaev <nuba8184@gmail.com>
+Date:   Tue Jul 31 15:15:06 2018 +0600
+
+    Modalwin.js ready
+
+[33mcommit 4c9635c71561d2546ae2175eaf5b671d40f4c40d[m
+Author: Oleg Pukhaev <nuba8184@gmail.com>
+Date:   Tue Jul 31 15:00:34 2018 +0600
+
+    Entrance modal win for username
+
+[33mcommit b3380febbfb550bd00aa002d26a37c9d6a7bbca6[m
+Author: Oleg Pukhaev <nuba8184@gmail.com>
+Date:   Mon Jul 30 23:20:34 2018 +0600
+
+    Ready for develop
+
+[33mcommit 9bce4d17ea5108cb7be1e3f627c548c766f5ebec[m
+Author: Oleg Pukhaev <nuba8184@gmail.com>
+Date:   Mon Jul 30 22:44:18 2018 +0600
+
+    New file modalwin.js
+
+[33mcommit 19a23c5f1c1c402d39365439bb7d4566896d8f2e[m
+Author: Oleg Pukhaev <nuba8184@gmail.com>
+Date:   Sun Jul 29 06:33:04 2018 +0600
+
+    Hello github
+
+[33mcommit 71906454f61c62a35afb386a3fa80804c1835b29[m
+Author: Oleg Pukhaev <nuba8184@gmail.com>
+Date:   Fri Jul 27 11:21:54 2018 +0600
+
+    Add some tags to Header
+
+[33mcommit 62a7b3e32f2c61a2be41551d93e6bc853888d473[m
+Author: Oleg Pukhaev <nuba8184@gmail.com>
+Date:   Fri Jul 27 11:11:47 2018 +0600
+
+    Add new class Header
+
+[33mcommit 1fe695d1335050d41810e8549a7a1184c7c9e352[m
+Author: Oleg Pukhaev <nuba8184@gmail.com>
+Date:   Fri Jul 27 11:08:00 2018 +0600
+
+    Added p tag in class ModalWin
