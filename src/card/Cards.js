@@ -4,11 +4,7 @@ import ReactDOM from 'react-dom';
 // import '../../src/style.css';
 import TextArea from '.././input/Input.js';
 
-class CardTitle extends React.Component {
-    render () {
-        return 
-    }
-}
+
 // Карточка с заданием
 class Card extends React.Component {
     constructor(props) {
@@ -27,10 +23,9 @@ class Card extends React.Component {
         return (
             <div class="card mt-1" >
                 <div class="card-body">
-                    <p class="card-title cardstyle" id={this.props.mykey} onClick={this.handlerClick}>{this.props.title} + {this.props.mykey}</p>
+                    <p class="card-title cardstyle" id={this.props.mykey} onClick={this.handlerClick}>{this.props.title}</p>
                     {this.state.activeId == this.props.mykey && <TextArea />}
-                    {/* {this.state.activeId == this.props.mykey ? <TextArea /> : <TextArea />} */}
-                    <a href="#" class="card-link">Comments 0</a>
+                    <a href="#" class="card-link">Comments {this.props.comments}</a>
                 </div>
             </div>
         );

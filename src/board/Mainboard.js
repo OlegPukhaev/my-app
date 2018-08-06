@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../../src/bootstrap.css';
 import '../../src/style.css';
-import Column from '../column/Column';
+import Column from '../column/Column.js';
 
 // Главная доска для заданий
 class Mainboard extends React.Component {

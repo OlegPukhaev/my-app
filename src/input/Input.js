@@ -16,25 +16,35 @@ class TextArea extends React.Component {
 
     clickHandler () {
         this.props.updateData(this.state.name);
+        alert(this.props.cardobj.colname);
+        alert(this.props.cardobj.colname);
+        // SaveData(obj1 , "tab1");
     }
 
     handlerChange (event) {
         // alert(this.props.cardobj.colname);
     //    this.props.cardobj.colname = event.target.value;
 
-        //this.props.cardobj.push("In progress");
+        // this.props.cardobj.colname = "Lego";
+        // var obj1 = {
+        //                 "colname" : "Lego", 
+        //                 "cards": [
+        //                         {
+        //                             "title":"Give Me some money",
+        //                             "desc":"",
+        //                             "comments" :["Cool","Bad", "Cool"]
+        //                         }
+        //                     ]
+        //             };
 
+        this.props.cardobj.colname = event.target.value;
+        // alert(this.props.cardobj.colname);
         
-        this.props.cardobj.colname = "Lego";
-        // this.props.cardobj.colname.push("Lemon");
-        alert(this.props.cardobj.colname);
-        //console.this.props.cardobj.colname;
-        SaveData(this.props.cardobj , "tab2");
+        //SaveData(obj1 , "tab1");
     }
 
     render () {
         // var collname = this.props.boardname;
-        // alert (this.props.boardname);
         return (
             <div>
                 <form>

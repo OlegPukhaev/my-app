@@ -29,17 +29,23 @@ class Column extends React.Component {
 
     getCards(localkey) {//Возвращает объект карточки по ключу localkey в localstorage
         const returnObj = JSON.parse(localStorage.getItem(localkey));
+        // alert(returnObj.cards[0].comments[1]);
+        // console.log(returnObj.colname);
       return returnObj;
+      
     }
 
     CardsList(props) {//Возвращает список карточек
         var cards = props;
+        // alert (cards[0].title);
         var listItems = cards.map((number, index) =>
-            <Cards title={number} mykey={index} />  
+            <Cards title={number.title} mykey={index} comments={number.comments.length}/>  
+            
         );
         return (
             <div>
                 {listItems}
+                {/* {console.log(listItems)} */}
             </div>
         );
     }
@@ -51,8 +57,8 @@ class Column extends React.Component {
     }
 
     render () {
-        var coll = this.props.colname;
-        var cardobj = this.getCards(coll);
+        var coll = this.props.colname;//tab1
+        var cardobj = this.getCards(coll);//
         var cardselem = this.CardsList(cardobj.cards);
         return (
             <div class="col-2 border rounded bg-light ml-1">
