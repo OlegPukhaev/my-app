@@ -20,11 +20,16 @@ class TextArea extends React.Component {
 
     handlerChange (event) {
         // alert(this.props.cardobj.colname);
-        this.props.cardobj.colname = event.target.value;
+    //    this.props.cardobj.colname = event.target.value;
+
+        //this.props.cardobj.push("In progress");
 
         
-        SaveData(this.props.cardobj.colname , "tab2");
-        // alert(this.props.cardobj.colname);
+        this.props.cardobj.colname = "Lego";
+        // this.props.cardobj.colname.push("Lemon");
+        alert(this.props.cardobj.colname);
+        //console.this.props.cardobj.colname;
+        SaveData(this.props.cardobj , "tab2");
     }
 
     render () {
