@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { SaveData } from './functions/Functions';
 
 import App from './App';
 // import Hello from './App';
@@ -8,6 +9,17 @@ import registerServiceWorker from './registerServiceWorker';
 // ReactDOM.render(<App />, document.getElementById('root'));
 // registerServiceWorker();
 
+// var obj1 = {
+//   "colname" : "Lego", 
+//   "cards": [
+//           {
+//               "title":"Give Me some money",
+//               "desc":"",
+//               "comments" :["Cool","Bad", "Cool"]
+//           }
+//       ]
+// };
+// SaveData(obj1 , "tab1");
 
 
 //const elem = <Hello name="alex" />

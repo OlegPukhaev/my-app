@@ -67,8 +67,9 @@ class Column extends React.Component {
                     {/* {alert(this.state.activeId)} */}
                     {this.state.activeId == coll && 
                         <TextArea 
-                            boardname={"Pukhaev"}
-                            cardobj={cardobj} 
+                            // boardname={"Pukhaev"}
+                            cardobj={cardobj}
+                            collid={this.props.colname}
                             updateData={this.updateData}
                         />
                     }
