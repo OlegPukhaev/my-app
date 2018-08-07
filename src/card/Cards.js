@@ -8,7 +8,7 @@ class Card extends React.Component {
         super(props);
 
         this.cardobj = getCards(this.props.collid);
-        alert(this.cardobj.colname + "fv " + this.cardobj.cards[0].title);
+        // alert(this.cardobj.colname + "fv " + this.cardobj.cards[0].title);
         this.state = {activeId: null};
         this.handlerClick = this.handlerClick.bind(this);
         this.updateData = this.updateData.bind(this);
@@ -29,7 +29,7 @@ class Card extends React.Component {
         return (
             <div class="card mt-1" >
                 <div class="card-body">
-                    <p class="card-title cardstyle" id={this.props.mykey} onClick={this.handlerClick}>{this.cardobj.cards[this.props.mykey].title}</p>
+                    <p class="card-title cardstyle" id={this.props.key} onClick={this.handlerClick}>{this.cardobj.cards[this.props.mykey].title}</p>
                     {this.state.activeId == this.props.mykey &&    
                                         
                         <TextArea 

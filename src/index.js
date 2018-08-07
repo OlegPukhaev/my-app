@@ -2,8 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { SaveData } from './functions/Functions';
 
-import App from './App';
-// import Hello from './App';
+// import App from './App';//рабочая запутанная версия
+import App from './Sandbox/App';//рабочая запутанная версия
+
 import registerServiceWorker from './registerServiceWorker';
 
 ReactDOM.render(<App />, document.getElementById('root'));

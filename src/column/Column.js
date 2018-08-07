@@ -79,7 +79,7 @@ class Column extends React.Component {
                     {/* {cardobj.cards[0].title}  */}
                     {/* <Title text= {cardobj.cards[0].title} /> */}
                     {/* {alert("jjjj")} */}
-                <h6 class="p-2">Add a card...</h6> 
+                <button>Add a card...</button> 
                
           </div>
         );
