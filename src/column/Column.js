@@ -38,7 +38,7 @@ class Column extends React.Component {
         var cards = props;
         // alert (cards[0].title);
         var listItems = cards.map((number, index) =>
-            <Cards title={number.title} mykey={index} collid={this.props.colname} comments={number.comments.length}/>  
+            <Cards title={number.title} key={index} collid={this.props.colname} comments={number.comments.length}/>  
         );
         return (
             <div>
@@ -74,7 +74,11 @@ class Column extends React.Component {
                     }
                 </div>
                     {/*Карточки выводятся мэпом */}
-                     {cardselem} 
+                    {/* {cardselem} */}
+                    <Cards title="Oleg oleg" mykey="0" collid="tab1" comments="3"/> 
+                    {/* {cardobj.cards[0].title}  */}
+                    {/* <Title text= {cardobj.cards[0].title} /> */}
+                    {/* {alert("jjjj")} */}
                 <h6 class="p-2">Add a card...</h6> 
                
           </div>

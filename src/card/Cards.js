@@ -11,6 +11,7 @@ class Card extends React.Component {
         alert(this.cardobj.colname + "fv " + this.cardobj.cards[0].title);
         this.state = {activeId: null};
         this.handlerClick = this.handlerClick.bind(this);
+        this.updateData = this.updateData.bind(this);
     }
 
     handlerClick (event) {
