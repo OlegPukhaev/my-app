@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Cards from '.././card/Cards.js';
 import TextArea from '.././input/Input.js';
+// import {getCards} from './../functions/Functions.js';
 
 class Title extends React.Component {
     render () {
@@ -15,12 +16,13 @@ class Column extends React.Component {
         name: 'Бумеранг вернулся назад'
       }
 
-
     constructor(props) {
         super(props);
     
+        // var cardobj = this.getCards(coll);
         this.state = {activeId: null};
         this.handlerClick = this.handlerClick.bind(this);
+        this.CardsList = this.CardsList.bind(this);
     }
 
     updateData = (value) => {
@@ -29,18 +31,14 @@ class Column extends React.Component {
 
     getCards(localkey) {//Возвращает объект карточки по ключу localkey в localstorage
         const returnObj = JSON.parse(localStorage.getItem(localkey));
-        // alert(returnObj.cards[0].comments[1]);
-        // console.log(returnObj.colname);
       return returnObj;
-      
     }
 
     CardsList(props) {//Возвращает список карточек
         var cards = props;
         // alert (cards[0].title);
         var listItems = cards.map((number, index) =>
-            <Cards title={number.title} mykey={index} comments={number.comments.length}/>  
-            
+            <Cards title={number.title} mykey={index} collid={this.props.colname} comments={number.comments.length}/>  
         );
         return (
             <div>
@@ -58,7 +56,7 @@ class Column extends React.Component {
 
     render () {
         var coll = this.props.colname;//tab1
-        var cardobj = this.getCards(coll);//
+        var cardobj = this.getCards(coll);
         var cardselem = this.CardsList(cardobj.cards);
         return (
             <div class="col-2 border rounded bg-light ml-1">
@@ -70,14 +68,10 @@ class Column extends React.Component {
                             // boardname={"Pukhaev"}
                             cardobj={cardobj}
                             collid={this.props.colname}
+                            title={cardobj.colname}
                             updateData={this.updateData}
                         />
                     }
-                  {/* {alert(this.state.name)}   */}
-                  {/* <Title text="Ololo" /> */}
-                  {/* {this.state.activeId != coll ? cardobj.colname : <TextArea text={cardobj.colname}/>} */}
-                  {/* {this.state.activeId == coll ? <TextArea text={cardobj.colname}/> : cardobj.colname} */}
-
                 </div>
                     {/*Карточки выводятся мэпом */}
                      {cardselem} 

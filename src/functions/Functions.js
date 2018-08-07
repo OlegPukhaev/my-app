@@ -10,6 +10,7 @@ export function SaveData(saveobj, localkey){//сохраняем объект к
 
 export function getCards(localkey) {//Возвращает объект карточки по ключу localkey в localstorage
     const returnObj = JSON.parse(localStorage.getItem(localkey));
+    // alert("getCards");
   return returnObj;
 }
 

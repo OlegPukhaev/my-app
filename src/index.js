@@ -6,8 +6,8 @@ import App from './App';
 // import Hello from './App';
 import registerServiceWorker from './registerServiceWorker';
 
-// ReactDOM.render(<App />, document.getElementById('root'));
-// registerServiceWorker();
+ReactDOM.render(<App />, document.getElementById('root'));
+registerServiceWorker();
 
 // var obj1 = {
 //   "colname" : "Lego", 
@@ -19,6 +19,7 @@ import registerServiceWorker from './registerServiceWorker';
 //           }
 //       ]
 // };
+
 // SaveData(obj1 , "tab1");
 
 

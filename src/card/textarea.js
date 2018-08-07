@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { SaveData } from '../functions/Functions';
+import {SaveData, getCards} from './../functions/Functions.js';
+
 
 class TextArea extends React.Component {
   state = {
@@ -10,7 +11,7 @@ class TextArea extends React.Component {
         super(props);
 
         // var collobject = this.props.cardobj;
-        this.collobject = this.props.cardobj;
+        this.collobject = getCards(this.props.collid);
         // this.objpath = this.props.objpath;
 
         this.clickHandler = this.clickHandler.bind(this);
@@ -25,7 +26,9 @@ class TextArea extends React.Component {
     }
 
     handlerChange (event) {
-        this.collobject.colname = event.target.value;//Записываем в объект новое значение тайтла
+        var elemno = this.props.itemid;
+        // alert(this.collobject.colname);
+        this.collobject.cards[elemno].title = event.target.value;//Записываем в объект новое значение тайтла
     }
 
     render () {
@@ -34,7 +37,7 @@ class TextArea extends React.Component {
                 <form>
                     <div class="form-group">
                         {/* <textarea class="form-control" onBlur={() => { this.props.updateData(this.state.name)}}>{this.props.text}</textarea> */}
-                        <textarea class="form-control" onChange={this.handlerChange} onBlur={this.clickHandler}>{this.props.title}</textarea>
+                        <textarea class="form-control" onChange={this.handlerChange} onBlur={this.clickHandler}>{this.collobject.cards[0].title}</textarea>
                     </div>
                 </form>
             </div>
