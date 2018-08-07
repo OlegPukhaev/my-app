@@ -14,6 +14,12 @@ export function getCards(localkey) {//Возвращает объект карт
   return returnObj;
 }
 
+export function getData(localkey) {//Возвращает объект карточки по ключу localkey в localstorage
+  const returnObj = JSON.parse(localStorage.getItem(localkey));
+  // alert("getCards");
+return returnObj;
+}
+
 export function Cardstitle(props){//возвращает заголовок карточки
   return <h5>{props.title}</h5>
 }

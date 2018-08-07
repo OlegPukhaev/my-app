@@ -19,7 +19,7 @@ class App extends React.Component {
     render() {
       return (
           <div>
-             {this.state.activeWin == null ? <Username updateData={this.updateData}/> : <Content />}
+             {this.state.activeWin == null ? <Username updateData={this.updateData}/> : <Content table="tab1"/>}
              {/* <Addcard /> */}
              
           </div> 
