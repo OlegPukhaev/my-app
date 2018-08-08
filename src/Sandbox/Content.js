@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Addcard from './Addcard';
 import { getData } from '../functions/Functions';
+import Cardlist from './Cardlist';
 
 // import ModalWin from './modalwin/Modalwin.js';
 
@@ -27,6 +28,8 @@ class Content extends React.Component {
         return (
             <div id="content">
                 <h1>{this.data.colname}</h1>
+
+                <Cardlist cards={this.data.cards} />
                 <ul>
                     <li>Title: {this.data.cards[0].title}</li>
                 </ul>
