@@ -12,19 +12,19 @@ class Addcard extends React.Component {
     }
 
     handlerClick(){
-        var autor = getData("Username");
-        var obj1 = {
-                        "title": this.state.value,
-                        "desc": "",
-                        "comments" :[""],
-                        "autor": autor    
-                    };
-              
-        this.props.updateData("hide");
-        if (this.state.value) {
-            this.props.data.cards.push(obj1);
-            saveData(this.props.data, this.props.table);
-        }
+            var autor = getData("Username");
+            var obj1 = {
+                            "title": this.state.value,
+                            "desc": "",
+                            "comments" :[""],
+                            "autor": autor    
+                        };
+                
+            this.props.updateData("hide");
+            if (this.state.value) {
+                this.props.data.cards.push(obj1);
+                saveData(this.props.data, this.props.table);
+            }
     }
 
     handlerChange(event){

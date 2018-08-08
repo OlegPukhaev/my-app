@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { SaveData } from './functions/Functions';
+import { saveData } from './functions/Functions';
 
 // import App from './App';//рабочая запутанная версия
 import App from './Sandbox/App';//рабочая запутанная версия
@@ -11,17 +11,18 @@ ReactDOM.render(<App />, document.getElementById('root'));
 registerServiceWorker();
 
 // var obj1 = {
-//   "colname" : "Lego", 
+//   "colname" : "Done", 
 //   "cards": [
 //           {
 //               "title":"Give Me some money",
-//               "desc":"",
-//               "comments" :["Cool","Bad", "Cool"]
+//               "desc":"Ogolodal narod chestnoj",
+//               "comments" :["Cool","Bad", "Cool"],
+//               "autor" : "Oleg"
 //           }
 //       ]
 // };
 
-// SaveData(obj1 , "tab1");
+// saveData(obj1 , "tab4");
 
 
 //const elem = <Hello name="alex" />

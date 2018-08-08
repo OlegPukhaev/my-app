@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Username from './Username';
-import Content from './Content';
-
-
+import Colllist from './Colllist';
 
 class App extends React.Component {
     constructor () {
@@ -19,9 +17,7 @@ class App extends React.Component {
     render() {
       return (
           <div>
-             {this.state.activeWin == null ? <Username updateData={this.updateData}/> : <Content table="tab1"/>}
-             {/* <Addcard /> */}
-             
+             {this.state.activeWin == null ? <Username updateData={this.updateData}/> : <Colllist />}
           </div> 
       );
     }

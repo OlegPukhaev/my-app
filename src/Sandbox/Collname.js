@@ -10,16 +10,20 @@ class Changetitle extends React.Component {
         this.data = this.props.data
         this.handlerClick = this.handlerClick.bind(this)
         this.handlerChange = this.handlerChange.bind(this)
+        // this.keyPress = this.keyPress.bind(this)
     }
 
     handlerClick(value){
-        this.data.colname = this.state.colltitle; 
-        saveData(this.data, this.props.table);
-        this.props.updateData("hide");
+        if (this.state.colltitle != "") {            
+            this.data.colname = this.state.colltitle; 
+            saveData(this.data, this.props.table);
+            this.props.updateData("hide");
+        } else {
+            this.props.updateData("hide");
+        }
     }
 
     handlerChange(event){
-        
         this.setState({colltitle: event.target.value});
     }
 
@@ -27,7 +31,7 @@ class Changetitle extends React.Component {
         return(
             <form class="userform">
                 <div class="form-group">
-                    <input type="text" onChange={this.handlerChange} class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder={this.props.title} />
+                    <input type="text" onKeyPress={this.keyPress}  onChange={this.handlerChange} class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder={this.props.title} />
                 </div>
                 <button type="submit" class="btn btn-primary" onClick={this.handlerClick}>Submit</button>
             </form>

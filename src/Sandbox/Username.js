@@ -6,14 +6,16 @@ class Username extends React.Component {
     constructor (props) {
         super(props)
 
-        this.state = {username : "User"}
+        this.state = {username : ""}
         this.handlerClick = this.handlerClick.bind(this)
         this.handlerChange = this.handlerChange.bind(this)
     }
 
     handlerClick(value){
-        this.props.updateData("Content");
-        saveData(this.state.username, "Username");
+        if (this.state.username != ""){
+            this.props.updateData("Content");
+            saveData(this.state.username, "Username");
+        } else alert ("Enter Username");
     }
 
     handlerChange(event){
