@@ -26,7 +26,7 @@ class Content extends React.Component {
         return (
             <div id="content">
                 <Collname data={this.data} table={this.props.table}/>
-                <Cardlist data={this.data} />
+                <Cardlist data={this.data} table={this.props.table}/>
             
                 <button type="submit" class="btn btn-primary" onClick={this.handlerClick}>Add Card</button>
                 {this.state.activeForm == "Show" && <Addcard table={this.props.table} data={this.data} updateData={this.updateData}/>}
