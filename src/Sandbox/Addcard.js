@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 // import logo from './logo.svg';
 import './App.css';
-import { saveData } from './../functions/Functions';
+import { saveData, getData } from './../functions/Functions';
 
 // import ModalWin from './modalwin/Modalwin.js';
 
@@ -15,11 +15,12 @@ class Addcard extends React.Component {
     }
 
     handlerClick(){
+        var autor = getData("Username");
         var obj1 = {
                         "title": this.state.value,
                         "desc": "",
                         "comments" :[""],
-                        "autor":""    
+                        "autor": autor    
                     };
               
         this.props.updateData("hide");

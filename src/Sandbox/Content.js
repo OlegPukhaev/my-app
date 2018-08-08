@@ -30,10 +30,7 @@ class Content extends React.Component {
                 <h1>{this.data.colname}</h1>
 
                 <Cardlist cards={this.data.cards} />
-                <ul>
-                    <li>Title: {this.data.cards[0].title}</li>
-                </ul>
-
+            
                 <button type="submit" class="btn btn-primary" onClick={this.handlerClick}>Add Card</button>
                 {this.state.activeForm == "Show" && <Addcard table={this.props.table} data={this.data} updateData={this.updateData}/>}
             </div> 
