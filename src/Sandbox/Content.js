@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
-// import logo from './logo.svg';
 import './App.css';
 import Addcard from './Addcard';
 import { getData } from '../functions/Functions';
 import Cardlist from './Cardlist';
-
-// import ModalWin from './modalwin/Modalwin.js';
+import Collname from './Collname';
 
 class Content extends React.Component {
     constructor (props) {
@@ -27,8 +25,7 @@ class Content extends React.Component {
     render() {
         return (
             <div id="content">
-                <h1>{this.data.colname}</h1>
-
+                <Collname data={this.data} table={this.props.table}/>
                 <Cardlist cards={this.data.cards} />
             
                 <button type="submit" class="btn btn-primary" onClick={this.handlerClick}>Add Card</button>
