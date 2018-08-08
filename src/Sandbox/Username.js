@@ -13,7 +13,7 @@ class Username extends React.Component {
 
     handlerClick(){
         this.props.updateData("Content");
-
+        // alert(this.target.value);    
     }
 
     render() {

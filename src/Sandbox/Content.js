@@ -32,7 +32,7 @@ class Content extends React.Component {
                 </ul>
 
                 <button type="submit" class="btn btn-primary" onClick={this.handlerClick}>Add Card</button>
-                {this.state.activeForm == "Show" && <Addcard data={this.data} updateData={this.updateData}/>}
+                {this.state.activeForm == "Show" && <Addcard table={this.props.table} data={this.data} updateData={this.updateData}/>}
             </div> 
         );
     }

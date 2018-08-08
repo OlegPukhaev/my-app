@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 // import logo from './logo.svg';
 // import './App.css';
 
-export function SaveData(saveobj, localkey){//сохраняем объект карточки saveobj, в localstorage по ключу localkey
+export function saveData(saveobj, localkey){//сохраняем объект карточки saveobj, в localstorage по ключу localkey
     const serialObj = JSON.stringify(saveobj); //сериализуем его
     localStorage.setItem(localkey, serialObj); //запишем его в хранилище по ключу "localkey"
 }
@@ -50,4 +50,4 @@ function Addcard(){//добавить новую карточку
   );
 }
 
-export default SaveData;
+export default saveData;
