@@ -14,6 +14,10 @@ export function getCards(localkey) {//Возвращает объект карт
   return returnObj;
 }
 
+export function deleteData(data, id){
+    data.splice(id, 1);
+}
+
 export function getData(localkey) {//Возвращает объект карточки по ключу localkey в localstorage
   const returnObj = JSON.parse(localStorage.getItem(localkey));
   // alert("getCards");
