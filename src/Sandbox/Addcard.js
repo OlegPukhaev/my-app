@@ -15,8 +15,8 @@ class Addcard extends React.Component {
             var autor = getData("Username");
             var obj1 = {
                             "title": this.state.value,
-                            "desc": "",
-                            "comments" :[""],
+                            "desc": null,
+                            "comments" :[],
                             "autor": autor    
                         };
                 

@@ -28,7 +28,7 @@ class Cardlist extends React.Component {
         var listItems = this.cards.map((item, index) =>
             <li key={item.title} id={index} value={index} onClick={this.handlerClick}>
                 <h3 id={index}>{item.title}</h3>
-                <p id={index}>Comment: {item.comments.length}</p>
+                {item.comments != null && (<p id={index}>Comment: {item.comments.length}</p>)}
             </li>
     
         );
@@ -36,7 +36,7 @@ class Cardlist extends React.Component {
             
             <div id="cardlist">
             {/* {alert(this.activeId)} */}
-                {this.state.showWin == "show" && <Cardinfo table={this.props.table} id={this.state.activeId} data={this.data} updateData={this.updateData}/>}
+                {this.state.showWin === "show" && <Cardinfo table={this.props.table} id={this.state.activeId} data={this.data} updateData={this.updateData}/>}
                 <ul>
                     {listItems}
                 </ul>

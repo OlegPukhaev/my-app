@@ -12,7 +12,7 @@ class Username extends React.Component {
     }
 
     handlerClick(value){
-        if (this.state.username != ""){
+        if (this.state.username !== ""){
             this.props.updateData("Content");
             saveData(this.state.username, "Username");
         } else alert ("Enter Username");

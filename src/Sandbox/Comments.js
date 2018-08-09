@@ -1,59 +1,39 @@
 import React, { Component } from 'react';
 import './App.css';
-import {getData, saveData} from '../functions/Functions';
+import Addcomment from './Addcomment';
+// import {getData, saveData} from '../functions/Functions';
 
 class Comments extends React.Component {
     constructor (props) {
         super(props)
 
-        this.state = {commentValue: ""}
+        // this.state = {commentValue: ""}
         this.data = this.props.data
         this.id = this.props.id
         this.table = this.props.table
-        this.handlerClick = this.handlerClick.bind(this)
-        this.handlerChange = this.handlerChange.bind(this)
-    }
-
-    handlerClick () {
-        // this.props.updateData("hide");
-        var autor = getData("Username");
-        var comment = {
-            "comment" : this.state.commentValue,
-            "autor": autor    
-        };
-
-        this.data.cards[this.id].comments.push(comment);
-    }
-
-    handlerChange (event) {
-        this.setState({commentValue: event.target.value});
-        // alert(this.state.commentValue);
+        // this.handlerClick = this.handlerClick.bind(this)
+        // this.handlerChange = this.handlerChange.bind(this)
     }
 
     render() {
-        var listItems = this.data.cards[this.id].comments.map((item, index) =>
-            <li key={item.title} id={index} value={index} onClick={this.handlerClick}>
-                {item != "" && (<h3 id={index}>Автор комментария:</h3>)}
-                {item != "" && (<p id={index}>{item}</p>)}
-                <div id="newcomment">
-            </div> 
-            </li>
-    
-        );
+        if (this.data.cards[this.id].comments !== null){
+                var listItems = this.data.cards[this.id].comments.map((item, index) =>
+                    <li key={item.comment} id={index} value={index} onClick={this.handlerClick}>
+                        <h3 id={index}>Автор комментария: {item.autor}</h3>
+                        <p id={index}>{item.comment}</p>
+                    </li>
+                
+            );
+        } else {
+            listItems = "";
+        }
         return (
-            
             <div id="cardlist">
                 {/* {this.state.showWin == "show" && <Cardinfo id={this.state.activeId} data={this.data} updateData={this.updateData}/>} */}
-                <ul>
+                {/* <ul>
                     {listItems}
-                    <form class="userform">
-                        <div class="form-group">
-                            <input type="text" onChange={this.handlerChange} class="form-control" id="exampleInputEmail1" placeholder="Add new comment" />
-                        </div>
-                        <button type="submit" class="btn btn-primary" onClick={this.handlerClick}>Submit comment</button>
-                    </form>
-                </ul>
-
+                </ul> */}
+                <Addcomment data={this.data} table={this.table} id={this.id}/>
             </div> 
         );
     }

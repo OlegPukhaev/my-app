@@ -14,7 +14,7 @@ class Changetitle extends React.Component {
     }
 
     handlerClick(value){
-        if (this.state.colltitle != "") {            
+        if (this.state.colltitle !== "") {            
             this.data.colname = this.state.colltitle; 
             saveData(this.data, this.props.table);
             this.props.updateData("hide");
@@ -31,7 +31,7 @@ class Changetitle extends React.Component {
         return(
             <form class="userform">
                 <div class="form-group">
-                    <input type="text" onKeyPress={this.keyPress}  onChange={this.handlerChange} class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder={this.props.title} />
+                    <input type="text" onChange={this.handlerChange} class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder={this.props.title} />
                 </div>
                 <button type="submit" class="btn btn-primary" onClick={this.handlerClick}>Submit</button>
             </form>
@@ -61,7 +61,7 @@ class Collname extends React.Component {
         return (
             <div>
                 <h1 onClick={this.handlerClick}>{this.data.colname}</h1>
-                {this.state.formstate != "hide" && <Changetitle table={this.props.table} data={this.data} updateData={this.updateData}/>}
+                {this.state.formstate !== "hide" && <Changetitle table={this.props.table} data={this.data} updateData={this.updateData}/>}
             </div>
         );
     }
