@@ -24,7 +24,7 @@ class Addcomment extends React.Component {
         alert(this.state.commentValue);
         this.data.cards[this.id].comments.push(commentval);
         saveData(this.data, this.table);
-        // alert(this.state.commentValue);
+        alert(this.state.commentValue);
     }
 
     handlerChange (event) {

@@ -30,9 +30,9 @@ class Comments extends React.Component {
         return (
             <div id="cardlist">
                 {/* {this.state.showWin == "show" && <Cardinfo id={this.state.activeId} data={this.data} updateData={this.updateData}/>} */}
-                {/* <ul>
+                <ul>
                     {listItems}
-                </ul> */}
+                </ul>
                 <Addcomment data={this.data} table={this.table} id={this.id}/>
             </div> 
         );
