@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Cardinfo from './Cardinfo';
+// import {getData} from '../functions'
 
 class Cardlist extends React.Component {
     constructor (props) {
@@ -8,7 +9,7 @@ class Cardlist extends React.Component {
 
         this.state = {showWin: "hide"}
         this.state = {activeId: null}
-        this.data = this.props.data
+        this.data = this.props.data;
         this.cards = this.data.cards
         this.handlerClick = this.handlerClick.bind(this)
         this.updateData = this.updateData.bind(this)
@@ -36,7 +37,7 @@ class Cardlist extends React.Component {
             
             <div id="cardlist">
             {/* {alert(this.activeId)} */}
-                {this.state.showWin === "show" && <Cardinfo table={this.props.table} id={this.state.activeId} data={this.data} updateData={this.updateData}/>}
+                {this.state.showWin === "show" && <Cardinfo table={this.props.table} data={this.data} id={this.state.activeId} updateData={this.updateData}/>}
                 <ul>
                     {listItems}
                 </ul>

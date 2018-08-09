@@ -21,9 +21,9 @@ class Addcomment extends React.Component {
             "comment" : this.state.commentValue,
             "autor": autor    
         };
-        alert(this.state.commentValue);
-        this.data.cards[this.id].comments.push(commentval);
-        saveData(this.data, this.table);
+        // alert(this.state.commentValue);
+        this.props.data.cards[this.id].comments.push(commentval);
+        saveData(this.props.data, this.table);
         // alert(this.state.commentValue);
     }
 
@@ -33,12 +33,10 @@ class Addcomment extends React.Component {
 
     render() {
         return (
-                    <form class="userform">
-                        <div class="form-group">
-                            <input type="text" onChange={this.handlerChange} class="form-control" id="exampleInputEmail1" placeholder="Add new comment" />
-                        </div>
+                    <div>
+                        <input type="text" onChange={this.handlerChange} class="form-control" id="exampleInputEmail1" placeholder="Add new comment" />
                         <button type="submit" class="btn btn-primary" onClick={this.handlerClick}>Submit comment</button>
-                    </form>
+                    </div>
         );
     }
 }
