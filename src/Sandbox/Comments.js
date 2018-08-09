@@ -3,8 +3,6 @@ import './App.css';
 import Addcomment from './Addcomment';
 import {getData} from '../functions/Functions';
 
-
-
 class Comments extends React.Component {
     constructor (props) {
         super(props)
@@ -12,7 +10,6 @@ class Comments extends React.Component {
         // this.state = {commentValue: ""}
         this.data = this.props.data
         // this.data = getData(this.props.table)
-
         this.id = this.props.id
         this.table = this.props.table
         // this.handlerClick = this.handlerClick.bind(this)
@@ -26,7 +23,6 @@ class Comments extends React.Component {
                         <h3 id={index}>Автор комментария: {item.autor}</h3>
                         <p id={index}>{item.comment}</p>
                     </li>
-                
             );
         } else {
             listItems = "";

@@ -19,6 +19,8 @@ class Cardinfo extends React.Component {
         this.onChangetitle = this.onChangetitle.bind(this)
         this.onChangedesc = this.onChangedesc.bind(this)
         this.onclickSave = this.onclickSave.bind(this)
+        this.removeDesc = this.removeDesc.bind(this)
+        this.handleKeyDown = this.handleKeyDown.bind(this)
     }
 
     handlerClick () {
@@ -31,26 +33,40 @@ class Cardinfo extends React.Component {
         this.props.updateData("hide");
     }
 
+    
     onChangetitle (event){
         this.setState({title : event.target.value});
     }
-
+    
     onChangedesc (event){
         this.setState({desc : event.target.value});
     }
-
+    
     onclickSave (event){
-        alert(event.target.id);
+        // alert(event.target.id);
         {event.target.id === "title"  && (this.data.cards[this.id].title = this.state.title)}
         {event.target.id === "desc"  && (this.data.cards[this.id].desc = this.state.desc)}
         // alert(this.id + "->" + obj.cards[this.id].title + "->" + this.state.title);
         saveData(this.data, this.props.table);
     }
+    
+    removeDesc (){
+        this.setState({desc: ""});
+        this.data.cards[this.id].desc = "";
+        alert(this.state.desc);
+        saveData(this.data, this.props.table);
+    }
+
+    handleKeyDown (e){
+        if (e.keyCode === 27) {
+          alert("exsx")
+        }
+      }
 
     render() {
         return (
             <div id="cardinfo">
-                <button onClick={this.handlerClick}>Close</button>
+                <button onKeyDown={this.handleKeyDown} onClick={this.handlerClick}>Close</button>
                 <button onClick={this.onclickDelete}>Delete Card</button>
                
                 <h2 onClick={this.show}>Title: {this.state.title}</h2>
@@ -58,7 +74,7 @@ class Cardinfo extends React.Component {
                 <button id="title" onClick={this.onclickSave}>Save title</button>
                 <p>from <b>{this.data.colname}</b></p>
                
-                <p>Description:{this.state.desc}</p>
+                <p>Description:{this.state.desc}</p><button onClick={this.removeDesc}>Remove Description</button>
                 <input type="text" value={this.state.desc} onChange={this.onChangedesc}/>
                 <button id="desc" onClick={this.onclickSave}>Save Description</button>                 
                
