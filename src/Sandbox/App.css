@@ -57,13 +57,16 @@
 
   #cardinfo {
     position: fixed;
-    top:100px;
+    top:10px;
     left:50%;
+    
     transform: translate(-50%,0);
     width: 400px;
     height:auto;
+    max-height: 90%;
     background-color: rgb(245, 159, 159);
     padding: 10px;
+    overflow-y: scroll;
   }
 
   #cardlist ul li {
