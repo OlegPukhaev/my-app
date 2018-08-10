@@ -12,15 +12,19 @@ class Cardinfo extends React.Component {
         this.id = this.props.id
         this.state =    { 
                             title : this.data.cards[this.id].title,
+                            showEditTitle : "hide",
                             desc : this.data.cards[this.id].desc,
+                            showEditDesc : "hide",
+                            tmptext: ""
                         }
         this.handlerClick = this.handlerClick.bind(this)
         this.onclickDelete = this.onclickDelete.bind(this)
-        this.onChangetitle = this.onChangetitle.bind(this)
+        this.onChangeHandler = this.onChangeHandler.bind(this)
         this.onChangedesc = this.onChangedesc.bind(this)
         this.onclickSave = this.onclickSave.bind(this)
         this.removeDesc = this.removeDesc.bind(this)
         this.handleKeyDown = this.handleKeyDown.bind(this)
+        this.show = this.show.bind(this)
     }
 
     handlerClick () {
@@ -34,8 +38,9 @@ class Cardinfo extends React.Component {
     }
 
     
-    onChangetitle (event){
-        this.setState({title : event.target.value});
+
+    onChangeHandler (event){
+        this.setState({tmptext : event.target.value});
     }
     
     onChangedesc (event){
@@ -53,30 +58,45 @@ class Cardinfo extends React.Component {
     removeDesc (){
         this.setState({desc: ""});
         this.data.cards[this.id].desc = "";
-        alert(this.state.desc);
         saveData(this.data, this.props.table);
     }
 
-    handleKeyDown (e){
-        if (e.keyCode === 27) {
-          alert("exsx")
-        }
+    handleKeyDown (event){
+
+            if (event.key === "Enter") {
+                    {event.target.id === "title"  && (
+                            this.setState({title: this.state.tmptext}),
+                            this.data.cards[this.id].title = this.state.tmptext,
+                            this.setState({showEditTitle: "hide"})
+                        );
+                    }
+                    {event.target.id === "desc"  && (
+                            this.setState({desc: this.state.tmptext}),
+                            this.data.cards[this.id].desc = this.state.tmptext,
+                            this.setState({showEditDesc: "hide"})
+                        );
+                    }
+                    saveData(this.data, this.props.table);   
+            }
+      }
+
+      show (event) {
+          {event.target.id === "title" && this.setState({showEditTitle: "show"})};
+          {event.target.id === "desc" && this.setState({showEditDesc: "show"})};
       }
 
     render() {
         return (
-            <div id="cardinfo">
-                <button onKeyDown={this.handleKeyDown} onClick={this.handlerClick}>Close</button>
+            <div id="cardinfo" onKeyDown={this.handleKeyDown}>
+                <button onClick={this.handlerClick}>Close</button>
                 <button onClick={this.onclickDelete}>Delete Card</button>
                
-                <h5 onClick={this.show}>Title: {this.state.title}</h5>
-                <input type="text" value={this.state.title} onChange={this.onChangetitle}/>
-                <button id="title" onClick={this.onclickSave}>Save title</button>
+                <h5 id="title" onClick={this.show}>Title: {this.state.title}</h5>
+                {this.state.showEditTitle === "show" && <input id="title" type="text" onKeyDown={this.handleKeyDown} onChange={this.onChangeHandler}/>}
                 <p>from <b>{this.data.colname}</b></p>
                
-                <p>Description:{this.state.desc}</p><button onClick={this.removeDesc}>Remove Description</button>
-                <input type="text" value={this.state.desc} onChange={this.onChangedesc}/>
-                <button id="desc" onClick={this.onclickSave}>Save Description</button>                 
+                <p id="desc" onClick={this.show}>Description:{this.state.desc}</p><button onClick={this.removeDesc}>Remove Description</button>
+                {this.state.showEditDesc === "show" && <input type="text" id="desc" onChange={this.onChangeHandler}/>}
                
                  <p>Autor: {this.data.cards[this.id].autor}</p>
                
@@ -88,4 +108,4 @@ class Cardinfo extends React.Component {
     }
 }
 
-export default Cardinfo;
+export default Cardinfo;    
