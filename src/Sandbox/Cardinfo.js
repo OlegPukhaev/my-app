@@ -80,7 +80,7 @@ class Cardinfo extends React.Component {
                
                  <p>Autor: {this.data.cards[this.id].autor}</p>
                
-                 <Comments data={this.data} table={this.props.table} id={this.id}/>
+                 <Comments comments={this.data.cards[this.id].comments} data={this.data} table={this.props.table} id={this.id}/>
 
                  {/* <button onClick={this.onclickSave}>Save Card</button> */}
             </div> 

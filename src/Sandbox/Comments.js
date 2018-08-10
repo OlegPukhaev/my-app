@@ -1,39 +1,81 @@
 import React, { Component } from 'react';
 import './App.css';
-import Addcomment from './Addcomment';
-import {getData} from '../functions/Functions';
+// import Addcomment from './Addcomment';
+import { deleteData, saveData, getData} from '../functions/Functions';
 
 class Comments extends React.Component {
     constructor (props) {
         super(props)
 
-        // this.state = {commentValue: ""}
+
         this.data = this.props.data
-        // this.data = getData(this.props.table)
         this.id = this.props.id
         this.table = this.props.table
-        // this.handlerClick = this.handlerClick.bind(this)
-        // this.handlerChange = this.handlerChange.bind(this)
+        this.comments = this.props.comments
+
+        this.state = {  testcomment : this.comments,
+                        newcomment : ""
+        }
+
+        // this.onclickRemovecomment = this.onclickRemovecomment.bind(this)
+        this.eachComments = this.eachComments.bind(this)
+        this.handlerChange = this.handlerChange.bind(this)
+        this.onclickNewcomment = this.onclickNewcomment.bind(this)
+        this.onclickDeletecomment = this.onclickDeletecomment.bind(this)
+    }
+
+    // onclickRemovecomment (event) {
+    //     deleteData(this.data.cards[this.id].comments, event.target.id);
+    //     saveData(this.data, this.id);
+    // }
+
+    onclickDeletecomment (event) {
+        deleteData(this.comments, event.target.id);   
+        this.setState ({
+            testcomment : this.comments
+        });
+        saveData(this.data, this.props.table); 
+    }
+
+    eachComments(item, i) {
+        return (
+            <li key={i} index={i} id={i}>
+              <p>{item.autor} say: <br />
+                 {item.comment}</p>
+                 <button id={i} onClick={this.onclickDeletecomment}>Remove comment</button>
+            </li>
+        );
+    }
+
+    handlerChange (event) {
+        this.setState({newcomment : event.target.value});
+    }
+
+    onclickNewcomment () {
+        var autor = getData("Username");
+        var commentval = {
+            "comment" : this.state.newcomment,
+            "autor": autor    
+        };
+        this.comments.push(commentval);
+        saveData(this.data, this.props.table);
+        this.setState ({
+            testcomment : this.comments
+        });
     }
 
     render() {
-        if (this.data.cards[this.id].comments != null){
-                var listItems = this.data.cards[this.id].comments.map((item, index) =>
-                    <li key={item.comment} id={index} value={index} onClick={this.handlerClick}>
-                        <h3 id={index}>Автор комментария: {item.autor}</h3>
-                        <p id={index}>{item.comment}</p>
-                    </li>
-            );
-        } else {
-            listItems = "";
-        }
         return (
             <div id="cardlist">
                 {/* {this.state.showWin == "show" && <Cardinfo id={this.state.activeId} data={this.data} updateData={this.updateData}/>} */}
                 <ul>
-                    {listItems != null && listItems}
+                    {/* {listItems != null && listItems} */}
+                    {this.state.testcomment.map (this.eachComments)}
                 </ul>
-                <Addcomment data={this.data} table={this.table} id={this.id}/>
+                    <div>
+                        <input type="text" onChange={this.handlerChange} class="form-control" id="exampleInputEmail1" placeholder="Add new comment" />
+                        <button type="submit" class="btn btn-primary" onClick={this.onclickNewcomment}>Submit comment</button>
+                    </div>
             </div> 
         );
     }
