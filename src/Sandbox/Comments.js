@@ -33,8 +33,6 @@ class Comments extends React.Component {
         saveData(this.data, this.props.table); 
     }
 
-
-
     handlerChange (event) {
         this.setState({newcomment : event.target.value});
     }
@@ -53,10 +51,8 @@ class Comments extends React.Component {
     }
 
     saveEditcomment (event) {
-        // this.comments.push(commentval);
         var autor = getData("Username");
         this.comments[event.target.id].comment = this.state.newcomment;
-        // alert(this.state.newcomment);
         this.comments.autor = autor;
         saveData(this.data, this.props.table);
         this.setState ({
@@ -71,7 +67,6 @@ class Comments extends React.Component {
 
     onchangeEdit (event) {
         this.setState({newcomment: event.target.value});
-        // alert(this.state.newcomment);
     }
 
     eachComments(item, i) {
@@ -90,7 +85,6 @@ class Comments extends React.Component {
         return (
             <div id="cardlist">
                 <ul>
-                    {/* {listItems != null && listItems} */}
                     {this.state.testcomment.map (this.eachComments)}
                 </ul>
                     <div>

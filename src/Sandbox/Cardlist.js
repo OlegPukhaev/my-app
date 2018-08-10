@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
 import Cardinfo from './Cardinfo';
-// import {getData} from '../functions'
 
 class Cardlist extends React.Component {
     constructor (props) {
@@ -18,7 +17,6 @@ class Cardlist extends React.Component {
     handlerClick (event){
         this.setState({showWin: "show"});
         this.setState({activeId: event.target.id});
-        // alert(this.state.activeId)
     }
 
     updateData = (value) => {
@@ -36,7 +34,6 @@ class Cardlist extends React.Component {
         return (
             
             <div id="cardlist">
-            {/* {alert(this.activeId)} */}
                 {this.state.showWin === "show" && <Cardinfo table={this.props.table} data={this.data} id={this.state.activeId} updateData={this.updateData}/>}
                 <div class="col-12">
                     {listItems}

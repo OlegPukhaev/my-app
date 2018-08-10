@@ -10,7 +10,6 @@ class Changetitle extends React.Component {
         this.data = this.props.data
         this.handlerClick = this.handlerClick.bind(this)
         this.handlerChange = this.handlerChange.bind(this)
-        // this.keyPress = this.keyPress.bind(this)
     }
 
     handlerClick(value){
