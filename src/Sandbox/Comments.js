@@ -71,25 +71,25 @@ class Comments extends React.Component {
 
     eachComments(item, i) {
         return (
-            <li key={i} index={i} id={i}>
+            <div class="coll-12 bg-warning rounded mt-1" key={i} index={i} id={i}>
               <p>{item.autor} say: <br /></p>
                  <p onClick={this.onclickEditcomment}>{item.comment}</p>
-                 {this.state.editcomment === "show" && <textarea id={i} onChange={this.onchangeEdit} class="form-control" aria-label="With textarea"></textarea>}
-                 {this.state.editcomment === "show" && <button id={i} onClick={this.saveEditcomment}>Сохранить изменения</button>}
+                 {this.state.editcomment === "show" && <textarea id={i} onChange={this.onchangeEdit} class="form-control mt-2" aria-label="With textarea"></textarea>}
+                 {this.state.editcomment === "show" && <button id={i} class="mt-2" onClick={this.saveEditcomment}>Сохранить изменения</button>}
                  {this.state.editcomment !== "show" && <button id={i} onClick={this.onclickDeletecomment}>Remove comment</button>}
-            </li>
+            </div>
         );
     }
 
     render() {
         return (
             <div id="cardlist">
-                <ul>
-                    {this.state.testcomment.map (this.eachComments)}
-                </ul>
+                <div class="coll-12">
+                    {this.state.testcomment.map(this.eachComments)}
+                </div>
                     <div>
                         <input type="text" onChange={this.handlerChange} class="form-control" id="exampleInputEmail1" placeholder="Add new comment" />
-                        <button type="submit" class="btn btn-primary" onClick={this.onclickNewcomment}>Submit comment</button>
+                        <button type="submit" class="btn btn-primary mt-1" onClick={this.onclickNewcomment}>Submit comment</button>
                     </div>
             </div> 
         );
