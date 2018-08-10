@@ -24,7 +24,7 @@ class Content extends React.Component {
 
     render() {
         return (
-            <div id="content">
+            <div class="text-center" id="content">
                 <Collname data={this.data} table={this.props.table}/>
                 <Cardlist data ={this.data} table={this.props.table}/>
             

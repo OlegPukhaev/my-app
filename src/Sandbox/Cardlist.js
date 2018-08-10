@@ -27,10 +27,10 @@ class Cardlist extends React.Component {
 
     render() {
         var listItems = this.cards.map((item, index) =>
-            <li key={item.title} id={index} value={index} onClick={this.handlerClick}>
+            <div class="col-12 bg-light rounded" key={item.title} id={index} value={index} onClick={this.handlerClick}>
                 <h6 id={index}>{item.title}</h6>
                 {item.comments != null && (<p id={index}>Comment: {item.comments.length}</p>)}
-            </li>
+            </div>
     
         );
         return (
@@ -38,9 +38,9 @@ class Cardlist extends React.Component {
             <div id="cardlist">
             {/* {alert(this.activeId)} */}
                 {this.state.showWin === "show" && <Cardinfo table={this.props.table} data={this.data} id={this.state.activeId} updateData={this.updateData}/>}
-                <ul>
+                <div class="col-12">
                     {listItems}
-                </ul>
+                </div>
             </div> 
         );
     }
