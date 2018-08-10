@@ -1,5 +1,6 @@
 import React  from 'react';
 import './App.css';
+import '../../src/bootstrap.css';
 import Username from './Username';
 import Colllist from './Colllist';
 

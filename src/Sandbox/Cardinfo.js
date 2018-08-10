@@ -69,7 +69,7 @@ class Cardinfo extends React.Component {
                 <button onKeyDown={this.handleKeyDown} onClick={this.handlerClick}>Close</button>
                 <button onClick={this.onclickDelete}>Delete Card</button>
                
-                <h2 onClick={this.show}>Title: {this.state.title}</h2>
+                <h5 onClick={this.show}>Title: {this.state.title}</h5>
                 <input type="text" value={this.state.title} onChange={this.onChangetitle}/>
                 <button id="title" onClick={this.onclickSave}>Save title</button>
                 <p>from <b>{this.data.colname}</b></p>

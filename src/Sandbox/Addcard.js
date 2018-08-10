@@ -34,13 +34,11 @@ class Addcard extends React.Component {
     render() {
         return (
             <div id="addcard">
-                {/* <form class="userform"> */}
                     <div class="form-group">
                         <label for="exampleInputEmail1">Add Card Title</label>
                         <input type="email" onChange={this.handlerChange} class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" />
                     </div>
                     <button type="submit" class="btn btn-primary" onClick={this.handlerClick}>Submit</button>
-                {/* </form> */}
             </div> 
         );
     }

@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
-// import Addcomment from './Addcomment';
 import { deleteData, saveData, getData} from '../functions/Functions';
 
 class Comments extends React.Component {
     constructor (props) {
         super(props)
-
 
         this.data = this.props.data
         this.id = this.props.id
@@ -17,17 +15,11 @@ class Comments extends React.Component {
                         newcomment : ""
         }
 
-        // this.onclickRemovecomment = this.onclickRemovecomment.bind(this)
         this.eachComments = this.eachComments.bind(this)
         this.handlerChange = this.handlerChange.bind(this)
         this.onclickNewcomment = this.onclickNewcomment.bind(this)
         this.onclickDeletecomment = this.onclickDeletecomment.bind(this)
     }
-
-    // onclickRemovecomment (event) {
-    //     deleteData(this.data.cards[this.id].comments, event.target.id);
-    //     saveData(this.data, this.id);
-    // }
 
     onclickDeletecomment (event) {
         deleteData(this.comments, event.target.id);   
@@ -67,9 +59,7 @@ class Comments extends React.Component {
     render() {
         return (
             <div id="cardlist">
-                {/* {this.state.showWin == "show" && <Cardinfo id={this.state.activeId} data={this.data} updateData={this.updateData}/>} */}
                 <ul>
-                    {/* {listItems != null && listItems} */}
                     {this.state.testcomment.map (this.eachComments)}
                 </ul>
                     <div>

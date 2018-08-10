@@ -60,7 +60,7 @@ class Collname extends React.Component {
     render() {
         return (
             <div>
-                <h1 onClick={this.handlerClick}>{this.data.colname}</h1>
+                <h3 onClick={this.handlerClick}>{this.data.colname}</h3>
                 {this.state.formstate !== "hide" && <Changetitle table={this.props.table} data={this.data} updateData={this.updateData}/>}
             </div>
         );

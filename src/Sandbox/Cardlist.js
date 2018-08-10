@@ -28,7 +28,7 @@ class Cardlist extends React.Component {
     render() {
         var listItems = this.cards.map((item, index) =>
             <li key={item.title} id={index} value={index} onClick={this.handlerClick}>
-                <h3 id={index}>{item.title}</h3>
+                <h6 id={index}>{item.title}</h6>
                 {item.comments != null && (<p id={index}>Comment: {item.comments.length}</p>)}
             </li>
     
