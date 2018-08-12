@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import { saveData } from '../functions/Functions';
+import Darkback from './Darkback';
 
 class Username extends React.Component {
     constructor (props) {
@@ -24,14 +25,17 @@ class Username extends React.Component {
 
     render() {
         return (
-            <div id="user">
-                <form class="userform">
+        <div>
+            <Darkback />
+            <div id="user" class="coll">
+                <div class="userform">
                     <div class="form-group">
                         <input type="text" onChange={this.handlerChange} class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="User name" />
                     </div>
                     <button type="submit" class="btn btn-primary" onClick={this.handlerClick}>Submit</button>
-                </form>
+                </div>
             </div> 
+        </div>
         );
     }
 }

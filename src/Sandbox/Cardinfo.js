@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Comments from './Comments';
 import { deleteData, saveData, getData } from '../functions/Functions';
+import Darkback from './Darkback';
 
 class Cardinfo extends React.Component {
     constructor (props) {
@@ -63,7 +64,7 @@ class Cardinfo extends React.Component {
 
     handleKeyDown (event){
 
-            if (event.key === "Enter") {
+            if ((event.key === "Enter") && (this.state.tmptext !== "")) {
                     {event.target.id === "title"  && (
                             this.setState({title: this.state.tmptext}),
                             this.data.cards[this.id].title = this.state.tmptext,
@@ -77,9 +78,11 @@ class Cardinfo extends React.Component {
                         );
                     }
                     saveData(this.data, this.props.table);   
-            }
-      }
+            } else {
+                        this.setState({showEditTitle: "hide"});
+                    }
 
+      } 
       show (event) {
           {event.target.id === "title" && this.setState({showEditTitle: "show"})};
           {event.target.id === "desc" && this.setState({showEditDesc: "show"})};
@@ -87,21 +90,34 @@ class Cardinfo extends React.Component {
 
     render() {
         return (
-            <div id="cardinfo" onKeyDown={this.handleKeyDown}>
-                <button onClick={this.handlerClick}>Close</button>
-                <button onClick={this.onclickDelete}>Delete Card</button>
-               
-                <h5 id="title" onClick={this.show}>Title: {this.state.title}</h5>
-                {this.state.showEditTitle === "show" && <input id="title" type="text" onKeyDown={this.handleKeyDown} onChange={this.onChangeHandler}/>}
-                <p>from <b>{this.data.colname}</b></p>
-               
-                <p id="desc" onClick={this.show}>Description:{this.state.desc}</p><button onClick={this.removeDesc}>Remove Description</button>
-                {this.state.showEditDesc === "show" && <input type="text" id="desc" onChange={this.onChangeHandler}/>}
-               
-                 <p>Autor: {this.data.cards[this.id].autor}</p>
-               
-                 <Comments comments={this.data.cards[this.id].comments} data={this.data} table={this.props.table} id={this.id}/>
-            </div> 
+            <div>
+                <Darkback />
+                <div class="bg-light" id="cardinfo" class="border border-primary" onKeyDown={this.handleKeyDown}>
+                    
+                <button type="button" class="close" aria-label="Close" onClick={this.handlerClick}>
+                    <span aria-hidden="true">&times;</span>
+                </button>
+
+                    
+                
+                    <h5 class="mt-5 bg-light rounded py-3 " id="title" onClick={this.show}>Title: {this.state.title}</h5>
+                    {this.state.showEditTitle === "show" && <input id="title" type="text" onKeyDown={this.handleKeyDown} onChange={this.onChangeHandler} class="form-control"/>}
+                    <p>from <b>{this.data.colname}</b></p>
+                
+                    <h6 id="desc" class="bg-light rounded py-3" onClick={this.show}>Description: {this.state.desc}</h6>
+                    {this.state.showEditDesc === "show" && <input type="text" id="desc" onChange={this.onChangeHandler} class="form-control"/>}
+                    {this.state.showEditDesc !== "show" && <button class="btn btn-danger mt-2" onClick={this.removeDesc}>Remove Description</button>}
+
+                    <p>Autor: {this.data.cards[this.id].autor}</p>
+                
+                    <h5> Комментарии </h5>
+                    <Comments comments={this.data.cards[this.id].comments} data={this.data} table={this.props.table} id={this.id}/>
+                    <button class="btn btn-danger mt-1" onClick={this.onclickDelete}>Delete Card</button>
+                    <button type="button" class="btn btn-primary mt-1 ml-3" aria-label="Close" onClick={this.handlerClick}>
+                         Close window
+                    </button>
+                </div> 
+            </div>
         );
     }
 }

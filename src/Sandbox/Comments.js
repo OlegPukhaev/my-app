@@ -38,27 +38,31 @@ class Comments extends React.Component {
     }
 
     onclickNewcomment () {
-        var autor = getData("Username");
-        var commentval = {
-            "comment" : this.state.newcomment,
-            "autor": autor    
-        };
-        this.comments.push(commentval);
-        saveData(this.data, this.props.table);
-        this.setState ({
-            testcomment : this.comments
-        });
+        if(this.state.newcomment !==""){        
+            var autor = getData("Username");
+            var commentval = {
+                "comment" : this.state.newcomment,
+                "autor": autor    
+            };
+            this.comments.push(commentval);
+            saveData(this.data, this.props.table);
+            this.setState ({
+                testcomment : this.comments
+            });
+        }
     }
 
     saveEditcomment (event) {
-        var autor = getData("Username");
-        this.comments[event.target.id].comment = this.state.newcomment;
-        this.comments.autor = autor;
-        saveData(this.data, this.props.table);
-        this.setState ({
-            testcomment : this.comments
-        });
-        this.setState({editcomment: "hide"});
+        if (this.state.newcomment !== ""){
+            var autor = getData("Username");
+            this.comments[event.target.id].comment = this.state.newcomment;
+            this.comments.autor = autor;
+            saveData(this.data, this.props.table);
+            this.setState ({
+                testcomment : this.comments
+            });
+            this.setState({editcomment: "hide"});
+        } else this.setState({editcomment: "hide"});
     } 
 
     onclickEditcomment (){
