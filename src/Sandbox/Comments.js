@@ -73,14 +73,15 @@ class Comments extends React.Component {
         this.setState({newcomment: event.target.value});
     }
 
+
     eachComments(item, i) {
         return (
-            <div class="coll-12 bg-warning rounded mt-1" key={i} index={i} id={i}>
+            <div class="coll-12 bg-light rounded mt-1 p-2" key={i} index={i} id={i}>
               <p>{item.autor} say: <br /></p>
                  <p onClick={this.onclickEditcomment}>{item.comment}</p>
                  {this.state.editcomment === "show" && <textarea id={i} onChange={this.onchangeEdit} class="form-control mt-2" aria-label="With textarea"></textarea>}
                  {this.state.editcomment === "show" && <button id={i} class="mt-2" onClick={this.saveEditcomment}>Сохранить изменения</button>}
-                 {this.state.editcomment !== "show" && <button id={i} onClick={this.onclickDeletecomment}>Remove comment</button>}
+                 {this.state.editcomment !== "show" && <button class="btn btn-danger" id={i} onClick={this.onclickDeletecomment}>Remove comment</button>}
             </div>
         );
     }

@@ -26,6 +26,7 @@ class Cardinfo extends React.Component {
         this.removeDesc = this.removeDesc.bind(this)
         this.handleKeyDown = this.handleKeyDown.bind(this)
         this.show = this.show.bind(this)
+        this.keyBoardevent = this.keyBoardevent.bind(this)
     }
 
     handlerClick () {
@@ -88,11 +89,16 @@ class Cardinfo extends React.Component {
           {event.target.id === "desc" && this.setState({showEditDesc: "show"})};
       }
 
+      
+    keyBoardevent (event){
+        {event.key === "Escape" && this.props.updateData("hide");}
+    }
+
     render() {
         return (
-            <div>
-                <Darkback />
-                <div class="bg-light" id="cardinfo" class="border border-primary" onKeyDown={this.handleKeyDown}>
+            <div tabIndex="0" onKeyDown={this.keyBoardevent}>
+                <Darkback tabIndex="0" onKeyDown={this.keyBoardevent}/>
+                <div class="bg-light" id="cardinfo" class="border border-primary" tabIndex="0" onKeyDown={this.keyBoardevent}>
                     
                 <button type="button" class="close" aria-label="Close" onClick={this.handlerClick}>
                     <span aria-hidden="true">&times;</span>
