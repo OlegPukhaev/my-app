@@ -54,7 +54,7 @@ class Cardinfo extends React.Component {
         {event.target.id === "title"  && (this.data.cards[this.id].title = this.state.title)}
         {event.target.id === "desc"  && (this.data.cards[this.id].desc = this.state.desc)}
         // alert(this.id + "->" + obj.cards[this.id].title + "->" + this.state.title);
-        saveData(this.data, this.props.table);
+        // saveData(this.data, this.props.table);
     }
     
     removeDesc (){
@@ -78,9 +78,9 @@ class Cardinfo extends React.Component {
                             this.setState({showEditDesc: "hide"})
                         );
                     }
-                    saveData(this.data, this.props.table);   
+                    // saveData(this.data, this.props.table);   
             } else {
-                        this.setState({showEditTitle: "hide"});
+                        // this.setState({showEditTitle: "hide"});
                     }
 
       } 
@@ -96,8 +96,8 @@ class Cardinfo extends React.Component {
 
     render() {
         return (
-            <div tabIndex="0" onKeyDown={this.keyBoardevent}>
-                <Darkback tabIndex="0" onKeyDown={this.keyBoardevent}/>
+            <div tabIndex="0" >
+                <Darkback tabIndex="0" />
                 <div class="bg-light" id="cardinfo" class="border border-primary" tabIndex="0" onKeyDown={this.keyBoardevent}>
                     
                 <button type="button" class="close" aria-label="Close" onClick={this.handlerClick}>
