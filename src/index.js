@@ -2,10 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './Components/App';
 
-import registerServiceWorker from './registerServiceWorker';
+//Делаем занова
+
+// import registerServiceWorker from './registerServiceWorker';
 
 ReactDOM.render(<App />, document.getElementById('root'));
-registerServiceWorker();
+// registerServiceWorker();
 
 // var obj1 = {
 //   "colname" : "TODO", 
