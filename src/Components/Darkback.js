@@ -6,7 +6,7 @@ class Darkback extends React.Component {
 
     render() {
       return (
-          <div id="darkback" onClick={this.handlerClick}>
+          <div id="darkback">
           </div> 
       );
     }
