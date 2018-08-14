@@ -39,8 +39,6 @@ class Cardinfo extends React.Component {
         this.props.updateData("hide");
     }
 
-    
-
     onChangeHandler (event){
         this.setState({tmptext : event.target.value});
     }
@@ -67,24 +65,21 @@ class Cardinfo extends React.Component {
     }
 
     handleKeyDown (event){
-
             if ((event.key === "Enter") && (this.state.tmptext !== "")) {
-                    {event.target.id === "title"  && (
-                            this.setState({title: this.state.tmptext}),
-                            this.data.cards[this.id].title = this.state.tmptext,
-                            this.setState({showEditTitle: "hide"})
-                        );
-                    }
-                    {event.target.id === "desc"  && (
-                            this.setState({desc: this.state.tmptext}),
-                            this.data.cards[this.id].desc = this.state.tmptext,
-                            this.setState({showEditDesc: "hide"})
-                        );
-                    }
+                    switch (event.target.id) {
+                        case "title":
+                            this.setState({title: this.state.tmptext});
+                            this.data.cards[this.id].title = this.state.tmptext;
+                            this.setState({showEditTitle: "hide"});
+                        break;
+                        case "desc":
+                            this.setState({desc: this.state.tmptext});
+                            this.data.cards[this.id].desc = this.state.tmptext;
+                            this.setState({showEditDesc: "hide"});
+                        break;
+                    } 
                     saveData(this.data, this.props.table);   
-            } else {
-                        // this.setState({showEditTitle: "hide"});
-                    }
+            }
       } 
       show (event) {
           {event.target.id === "title" && this.setState({showEditTitle: "show"})};
