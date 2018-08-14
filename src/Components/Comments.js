@@ -80,8 +80,11 @@ class Comments extends React.Component {
               <p>{item.autor} say: <br /></p>
                  <p onClick={this.onclickEditcomment}>{item.comment}</p>
                  {this.state.editcomment === "show" && <textarea id={i} onChange={this.onchangeEdit} class="form-control mt-2" aria-label="With textarea"></textarea>}
-                 {this.state.editcomment === "show" && <button id={i} class="mt-2" onClick={this.saveEditcomment}>Сохранить изменения</button>}
-                 {this.state.editcomment !== "show" && <button class="btn btn-danger" id={i} onClick={this.onclickDeletecomment}>Remove comment</button>}
+                 {this.state.editcomment === "show" ?
+                    <button id={i} class="mt-2" onClick={this.saveEditcomment}>Сохранить изменения</button>
+                    :
+                    <button class="btn btn-danger" id={i} onClick={this.onclickDeletecomment}>Remove comment</button>
+                }
             </div>
         );
     }
