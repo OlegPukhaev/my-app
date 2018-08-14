@@ -81,11 +81,17 @@ class Cardinfo extends React.Component {
                     saveData(this.data, this.props.table);   
             }
       } 
-      show (event) {
-          {event.target.id === "title" && this.setState({showEditTitle: "show"})};
-          {event.target.id === "desc" && this.setState({showEditDesc: "show"})};
-      }
 
+      show (event) {
+          switch (event.target.id){
+              case "title": 
+                this.setState({showEditTitle: "show"});
+              break;
+              case "desc":
+                this.setState({showEditDesc: "show"});
+              break;
+          }
+      }
       
     keyBoardevent (event){
         {event.key === "Escape" && this.props.updateData("hide");}
