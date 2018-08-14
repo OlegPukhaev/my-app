@@ -78,7 +78,7 @@ class Cardinfo extends React.Component {
                             this.setState({showEditDesc: "hide"})
                         );
                     }
-                    // saveData(this.data, this.props.table);   
+                    saveData(this.data, this.props.table);   
             } else {
                         // this.setState({showEditTitle: "hide"});
                     }
@@ -111,7 +111,7 @@ class Cardinfo extends React.Component {
                     <p>from <b>{this.data.colname}</b></p>
                 
                     <h6 id="desc" class="bg-light rounded py-3" onClick={this.show}>Description: {this.state.desc}</h6>
-                    {this.state.showEditDesc === "show" && <input type="text" id="desc" onChange={this.onChangeHandler} class="form-control"/>}
+                    {this.state.showEditDesc === "show" && <input type="text" id="desc" onChange={this.onChangeHandler} onKeyDown={this.handleKeyDown}  class="form-control"/>}
                     {this.state.showEditDesc !== "show" && <button class="btn btn-danger mt-2" onClick={this.removeDesc}>Remove Description</button>}
 
                     <p>Autor: {this.data.cards[this.id].autor}</p>
