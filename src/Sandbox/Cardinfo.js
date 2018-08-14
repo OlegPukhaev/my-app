@@ -50,11 +50,14 @@ class Cardinfo extends React.Component {
     }
     
     onclickSave (event){
-        // alert(event.target.id);
-        {event.target.id === "title"  && (this.data.cards[this.id].title = this.state.title)}
-        {event.target.id === "desc"  && (this.data.cards[this.id].desc = this.state.desc)}
-        // alert(this.id + "->" + obj.cards[this.id].title + "->" + this.state.title);
-        // saveData(this.data, this.props.table);
+        switch (event.target.id) {
+            case "title":
+                this.data.cards[this.id].title = this.state.title;
+            break;
+            case "desc":
+            this.data.cards[this.id].desc = this.state.desc;
+            break;
+        } 
     }
     
     removeDesc (){
@@ -82,7 +85,6 @@ class Cardinfo extends React.Component {
             } else {
                         // this.setState({showEditTitle: "hide"});
                     }
-
       } 
       show (event) {
           {event.target.id === "title" && this.setState({showEditTitle: "show"})};
@@ -103,16 +105,18 @@ class Cardinfo extends React.Component {
                 <button type="button" class="close" aria-label="Close" onClick={this.handlerClick}>
                     <span aria-hidden="true">&times;</span>
                 </button>
-
-                    
                 
                     <h5 class="mt-5 bg-light rounded py-3 " id="title" onClick={this.show}>Title: {this.state.title}</h5>
                     {this.state.showEditTitle === "show" && <input id="title" type="text" onKeyDown={this.handleKeyDown} onChange={this.onChangeHandler} class="form-control"/>}
                     <p>from <b>{this.data.colname}</b></p>
                 
                     <h6 id="desc" class="bg-light rounded py-3" onClick={this.show}>Description: {this.state.desc}</h6>
-                    {this.state.showEditDesc === "show" && <input type="text" id="desc" onChange={this.onChangeHandler} onKeyDown={this.handleKeyDown}  class="form-control"/>}
-                    {this.state.showEditDesc !== "show" && <button class="btn btn-danger mt-2" onClick={this.removeDesc}>Remove Description</button>}
+            
+                    {this.state.showEditDesc === "show" ? (
+                        <input type="text" id="desc" onChange={this.onChangeHandler} onKeyDown={this.handleKeyDown}  class="form-control"/>) 
+                        : 
+                        (<button class="btn btn-danger mt-2" onClick={this.removeDesc}>Remove Description</button>)
+                    }
 
                     <p>Autor: {this.data.cards[this.id].autor}</p>
                 
