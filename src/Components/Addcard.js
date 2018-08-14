@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import { saveData, getData } from './../functions/Functions';
+import Darkback from './Darkback';
 
 class Addcard extends React.Component {
     constructor (props) {
@@ -33,12 +34,13 @@ class Addcard extends React.Component {
 
     render() {
         return (
-            <div id="addcard">
-                    <div class="form-group">
+            <div >
+                <Darkback tabIndex="0" />
+                    <div class="coll bg-lightgray" id="addcard">
                         <label for="exampleInputEmail1">Add Card Title</label>
-                        <input type="email" onChange={this.handlerChange} class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" />
+                        <input type="text" onChange={this.handlerChange} class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enterr card title" />
+                        <button type="submit" class="btn btn-primary p-2" onClick={this.handlerClick}>Submit</button>
                     </div>
-                    <button type="submit" class="btn btn-primary" onClick={this.handlerClick}>Submit</button>
             </div> 
         );
     }
