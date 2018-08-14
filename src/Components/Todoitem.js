@@ -1,11 +1,10 @@
 import React, {components} from 'react';
 
-class TodoItem extends components {
+class TodoItem extends React.Component {
     render () {
         return (
             <div>
-            
-            
+                {this.props.title}
             </div>
         );
     }
