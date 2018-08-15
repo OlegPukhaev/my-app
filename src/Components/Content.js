@@ -4,6 +4,7 @@ import Addcard from './Addcard';
 import { getData } from '../functions/Functions';
 import Cardlist from './Cardlist';
 import Collname from './Collname';
+import TodoList from './Todolist';
 
 class Content extends React.Component {
     constructor (props) {
@@ -25,7 +26,8 @@ class Content extends React.Component {
     render() {
         return (
             <div class="text-center" id="content">
-                <Collname data={this.data} table={this.props.table}/>
+                {/* <Collname data={this.data} table={this.props.table}/> */}
+                {/* <TodoList /> */}
                 <Cardlist data ={this.data} table={this.props.table}/>
             
                 <button type="submit" class="btn btn-primary" onClick={this.handlerClick}>Add Card</button>
