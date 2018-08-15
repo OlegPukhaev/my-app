@@ -10,7 +10,9 @@ class TodoList extends React.Component {
         return (
             <div>
                 {/* <Collname data={this.data} table={this.props.table}/> */}
-                {this.props.todos.map (item => <TodoItem key={item.id} colname={item.colname} />)}
+                {this.props.todos.map (item => <TodoItem key={item.id} colname={item.colname} cards={item.cards} />)}
+
+                {/* alert(this.props.todos.); */}
                                 {/* <ul>
                     {this.props.todos.map (t => <TodoItem key={t.id} title={t.title} />)}
                 </ul>
