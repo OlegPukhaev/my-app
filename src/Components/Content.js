@@ -9,7 +9,8 @@ class Content extends React.Component {
     constructor (props) {
         super (props)
 
-        this.data = getData(this.props.table);
+        this.data = this.props.data
+        // this.data = getData(this.props.table);
         this.state = {activeForm : "Hide"}
         this.handlerClick = this.handlerClick.bind(this)
     }
@@ -25,11 +26,11 @@ class Content extends React.Component {
     render() {
         return (
             <div class="text-center" id="content">
-                <Collname data={this.data} table={this.props.table}/>
-                <Cardlist data ={this.data} table={this.props.table}/>
+                <Collname data={this.data} table={this.data.table}/>
+                <Cardlist data ={this.data} table={this.data.table}/>
             
                 <button type="submit" class="btn btn-primary" onClick={this.handlerClick}>Add Card</button>
-                {this.state.activeForm === "Show" && <Addcard table={this.props.table} data={this.data} updateData={this.updateData}/>}
+                {this.state.activeForm === "Show" && <Addcard data={this.data} updateData={this.updateData}/>}
             </div> 
         );
     }

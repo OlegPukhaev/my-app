@@ -21,9 +21,10 @@ class App extends React.Component {
     render() {
       return (
           <div>
-                {this.state.activeWin == null ? <Username updateData={this.updateData}/> : <Colllist />}
+                {/* {this.state.activeWin == null ? <Username updateData={this.updateData}/> : <Colllist />} */}
                 <Provider store={store}>
-                    <TodoList />   
+                    {/* <TodoList />    */}
+                    <Colllist />
                 </Provider>
           </div> 
       );

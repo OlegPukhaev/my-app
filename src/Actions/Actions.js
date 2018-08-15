@@ -1,10 +1,11 @@
 import { ADD_TODO } from "../constans";
 
-export let addTodo = (id = 2, title = 'Выучить TS' ) => {
+export let addTodo = (table = "tttttt") => {
+    alert("fsdfds");
     return {
         type: ADD_TODO,
         payload: {
-            id, title
+            table
         }
     }
 }

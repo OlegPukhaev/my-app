@@ -1,32 +1,40 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
 import './App.css';
 import { saveData, getData } from './../functions/Functions';
+import addTodo from '../Actions/Actions'
 import Darkback from './Darkback';
 
 class Addcard extends React.Component {
     constructor (props) {
         super(props)
         
+        this.data = this.props.data
         this.state = {value: ""}
         this.handlerClick = this.handlerClick.bind(this)
         this.handlerChange = this.handlerChange.bind(this)
     }
 
     handlerClick(){
-            var autor = getData("Username");
+            // var autor = getData("Username");
             var obj1 = {
                             "title": this.state.value,
                             "desc": null,
                             "comments" :[],
-                            "autor": autor    
+                            "autor": "Oleg"    
                         };
                 
             this.props.updateData("hide");
             if (this.state.value) {
-                this.props.data.cards.push(obj1);
-                saveData(this.props.data, this.props.table);
+                this.data.cards.push(obj1);
+                // saveData(this.props.data, this.props.table);
+               addTodo();
             }
+
+           
     }
+
+    addTodo = () => this.data.add();
 
     handlerChange(event){
         this.setState({value: event.target.value});
@@ -44,6 +52,20 @@ class Addcard extends React.Component {
             </div> 
         );
     }
+
+
 }
 
-export default Addcard;
+// function mapStateToProps (state){
+//     return {
+//         todos: state.todos
+//     }
+// }
+
+function mapDispatchToProps(dispatch){
+    return {
+        add: () => dispatch(addTodo())
+    }
+}
+
+export default connect(mapDispatchToProps)(Addcard);
