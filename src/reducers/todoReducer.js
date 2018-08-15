@@ -67,7 +67,7 @@ let initialState = [
 let todoReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_TODO:
-            return [...state, {id: action.payload.id, title: action.payload.colname}];
+            return [...state, {id: action.payload.id, colname: action.payload.colname}];
         default:return state;
     }
 };
