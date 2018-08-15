@@ -21,11 +21,11 @@ class TodoList extends React.Component {
 
 // TodoList.propTypes = {};
 
-// function mapStateToProps (state){
-//     return {
-//         todos: state.todos
-//     }
-// }
+function mapStateToProps (state){
+    return {
+        todos: state.todos
+    }
+}
 
 function mapDispatchToProps(dispatch){
     return {
@@ -34,4 +34,4 @@ function mapDispatchToProps(dispatch){
 }
 
 // export default connect(mapStateToProps)(TodoList);
-export default connect(mapDispatchToProps)(TodoList);
+export default connect(mapStateToProps, mapDispatchToProps)(TodoList);

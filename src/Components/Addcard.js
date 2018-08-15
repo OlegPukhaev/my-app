@@ -27,6 +27,7 @@ class Addcard extends React.Component {
             this.props.updateData("hide");
             if (this.state.value) {
                 this.data.cards.push(obj1);
+                
                 // saveData(this.props.data, this.props.table);
                addTodo();
             }
