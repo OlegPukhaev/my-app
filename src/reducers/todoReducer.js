@@ -2,7 +2,7 @@ import { ADD_TODO } from "../constans";
 
 let initialState = [
                         {
-                            id:1, 
+                            table:1, 
                             colname: 'MyToDo',
                             cards: [
                                     {
@@ -17,7 +17,7 @@ let initialState = [
                             ]
                         },
                         {
-                            id:1, 
+                            table:1, 
                             colname: 'InProgress',
                             cards: [
                                     {
@@ -32,7 +32,7 @@ let initialState = [
                             ]
                         },
                         {
-                            id:1, 
+                            table:1, 
                             colname: 'Tommorow',
                             cards: [
                                     {
@@ -47,7 +47,7 @@ let initialState = [
                             ]
                         }, 
                         {
-                            id:1, 
+                            table:1, 
                             colname: 'Done',
                             cards: [
                                     {
