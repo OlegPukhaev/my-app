@@ -38,7 +38,7 @@ class Content extends React.Component {
             </div> 
         );
     }
-    
+
     showWin = () => this.props.dispatch(showWin());
 }
 

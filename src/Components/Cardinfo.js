@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
 import './App.css';
 import Comments from './Comments';
+import addTodo from '../Actions/Actions';
 import { deleteData, saveData, getData } from '../functions/Functions';
 import Darkback from './Darkback';
 
