@@ -22,15 +22,15 @@ class TodoItem extends React.Component {
     }
 
     render () {
-        var listItems = this.props.cards.map((item, index) =>
-            <div class="col-12 bg-light rounded" key={item.title} id={index} value={index} onClick={this.handlerClick}>
-                <h6 id={index}>{item.title}</h6>
-                {item.comments != null && (<p id={index}>Comment: {item.comments.length}</p>)}
-            </div>
-        );
+        // var listItems = this.props.cards.map((item, index) =>
+        //     <div class="col-12 bg-light rounded" key={item.title} id={index} value={index} onClick={this.handlerClick}>
+        //         <h6 id={index}>{item.title}</h6>
+        //         {item.comments != null && (<p id={index}>Comment: {item.comments.length}</p>)}
+        //     </div>
+        // );
         return (
             <div>
-                {this.props.item}
+                {this.props.id} : {this.props.name}
             </div>
         );
     }

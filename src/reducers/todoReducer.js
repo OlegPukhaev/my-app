@@ -1,7 +1,12 @@
-import { ADD_TODO, DEL_TODO } from "../constans";
+import { ADD_TODO, DEL_TODO, TEXT_TODO, CHANGE_OBJ } from "../constans";
 
 let initialState = {
-    result: 1
+    result: 1,
+    // lastValues: [{id: 1, name : "hhh"}]
+    lastValues: [],
+    tabobj: []
+    
+
 }
 
 let todoReducer = (state = initialState, action) => {
@@ -20,9 +25,25 @@ let todoReducer = (state = initialState, action) => {
             }
             break;
 
+        case TEXT_TODO: 
+           return state = {...state, lastValues: [...state.lastValues, action.payload]
+            }
+            break;
+
+        case CHANGE_OBJ: 
+           return state = {
+            ...state, 
+            tabobj: action.payload
+        }
+            break;
+
         default: return state;
     }
 };
+
+
+
+
 
 // let initialState = [
 //     {
@@ -37,9 +58,9 @@ let todoReducer = (state = initialState, action) => {
 //                                     "autor":"Vasya"
 //                                 }],
 //                     "autor" : "Oleg"
-//                 },
+//                 }
 //         ]
-//     },
+//     }
 //     {
 //         table:"tab2", 
 //         colname: 'InProgress',
@@ -52,7 +73,7 @@ let todoReducer = (state = initialState, action) => {
 //                                     "autor":"Vasya"
 //                                 }],
 //                     "autor" : "Oleg"
-//                 },
+//                 }
 //         ]
 //     },
 //     {
@@ -67,7 +88,7 @@ let todoReducer = (state = initialState, action) => {
 //                                     "autor":"Vasya"
 //                                 }],
 //                     "autor" : "Oleg"
-//                 },
+//                 }
 //         ]
 //     }, 
 //     {
@@ -82,7 +103,7 @@ let todoReducer = (state = initialState, action) => {
 //                                     "autor":"Vasya"
 //                                 }],
 //                     "autor" : "Oleg"
-//                 },
+//                 }
 //         ]
 //     } 
 
