@@ -28,7 +28,8 @@ class Colllist extends React.Component {
 
 function mapStateToProps (state){
     return {
-        todos: state.todos
+        todos: state.todos,
+        showwin: state.showwin
     }
 }
 

@@ -1,6 +1,29 @@
-import { ADD_TODO } from "../constans";
+import { ADD_TODO, DEL_TODO } from "../constans";
 
-let initialState = [{id:1, title: 'Выучить redux'}];
+let initialState = {
+    result: 1
+}
+
+let todoReducer = (state = initialState, action) => {
+
+    switch (action.type) {
+        case ADD_TODO: 
+           return state = {
+                ...state,
+                result: state.result + action.payload
+            }
+            break;
+        case DEL_TODO: 
+           return state = {
+                ...state,
+                result: state.result - action.payload
+            }
+            break;
+
+        default: return state;
+    }
+};
+
 // let initialState = [
 //     {
 //         table:"tab1", 
@@ -64,14 +87,5 @@ let initialState = [{id:1, title: 'Выучить redux'}];
 //     } 
 
 // ];
-
-let todoReducer = (state = initialState, action) => {
-    switch (action.type) {
-        case ADD_TODO:
-            // alert("111");
-            return [...state, {id: action.payload.id, title: action.payload.title}];
-        default:return state;
-    }
-};
 
 export default todoReducer;
