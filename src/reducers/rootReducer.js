@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
 import todoReducer from "./todoReducer";
-import activeWinReducer from './ActiveWinReduser';
+import userNameReducer from './userNameReducer';
 
 export default combineReducers({
     todos: todoReducer,
-    showwin: activeWinReducer
+    userprops: userNameReducer
 });

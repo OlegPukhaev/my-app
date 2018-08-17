@@ -30,11 +30,11 @@ class Content extends React.Component {
     render() {
         return (
             <div class="text-center" id="content">
-                <Collname data={this.data} table={this.data.table}/>
-                <Cardlist data ={this.data} table={this.data.table}/>
+                {/* <Collname data={this.data} table={this.data.table}/> */}
+                {/* <Cardlist data ={this.data} table={this.data.table}/> */}
             
                 <button type="submit" class="btn btn-primary" onClick={this.showWin}>Add Card</button>
-                {this.props.showwin.activeForm === true && <Addcard data={this.data} />}
+                {/* {this.props.showwin.activeForm === true && <Addcard data={this.data} />} */}
             </div> 
         );
     }

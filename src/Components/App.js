@@ -1,11 +1,12 @@
 import React  from 'react';
+import {Provider, connect} from 'react-redux';
+import store from '../store';
+
 import './App.css';
 import '../../src/bootstrap.css';
 import Username from './Username';
 import Colllist from './Colllist';
 import TodoList from './Todolist';
-import {Provider} from 'react-redux';
-import store from '../store';
 
 class App extends React.Component {
     constructor () {
@@ -20,13 +21,13 @@ class App extends React.Component {
 
     render() {
       return (
-          <div>
-                {/* {this.state.activeWin == null ? <Username updateData={this.updateData}/> : <Colllist />} */}
                 <Provider store={store}>
-                    <TodoList />   
-                    {/* <Colllist /> */}
+                    <div>
+                        <Colllist />
+                        {/* {this.state.activeWin == null ? <Username updateData={this.updateData}/> : <Colllist />} */}
+                    </div>
+                        {/* <TodoList />    */}
                 </Provider>
-          </div> 
       );
     }
 }
