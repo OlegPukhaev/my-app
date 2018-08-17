@@ -8,8 +8,10 @@ class Board extends React.Component {
     render () {
         return (
             <div>
-                <Content />
-                {this.props.name}
+                <Content  id={this.props.tab.colid1} colname={this.props.tab.colname1}/>
+                <Content  id={this.props.tab.colid2} colname={this.props.tab.colname2}/>
+                <Content  id={this.props.tab.colid3} colname={this.props.tab.colname3}/>
+                <Content  id={this.props.tab.colid4} colname={this.props.tab.colname4}/>
             </div>
         );
     }
@@ -18,10 +20,13 @@ class Board extends React.Component {
 class Colllist extends React.Component {
 
     render() {
-        // {alert(this.props.userprops.activeWin)}
         return (
             <div>
-                {this.props.userprops.activeWin === true ? <Username /> : <Board name={this.props.userprops.userName}/>}
+                {this.props.userprops.activeWin === true ? <Username /> : 
+                    <Board 
+                        tab={this.props.tab}
+                    />
+                }
             </div>
         );
     }
@@ -29,7 +34,8 @@ class Colllist extends React.Component {
 
 function mapStateToProps (state){
     return {
-        userprops: state.userprops
+        userprops: state.userprops,
+        tab: state.tab
     }
 }
 
