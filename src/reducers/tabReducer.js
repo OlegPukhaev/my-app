@@ -1,6 +1,7 @@
-import { EDIT_COL1 } from "../constans";
+import { EDIT_COL1, EDIT_COL2, EDIT_COL3, EDIT_COL4, SHOW_FORM } from "../constans";
 
 let initialState = {
+    formstate: false,
     colid1: "tab1",
     colname1: "TODO",
     colid2: "tab2",
@@ -14,10 +15,34 @@ let initialState = {
 let tabReducer = (state = initialState, action) => {
 
     switch (action.type) {
+        case SHOW_FORM: 
+           return state = {
+                ...state,
+                formstate: action.payload
+            }
+            break;
         case EDIT_COL1: 
            return state = {
                 ...state,
                 colname1: action.payload
+            }
+            break;
+        case EDIT_COL2: 
+           return state = {
+                ...state,
+                colname2: action.payload
+            }
+            break;
+        case EDIT_COL3: 
+           return state = {
+                ...state,
+                colname3: action.payload
+            }
+            break;
+        case EDIT_COL4: 
+           return state = {
+                ...state,
+                colname4: action.payload
             }
             break;
         default: return state;
