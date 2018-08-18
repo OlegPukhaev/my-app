@@ -1,7 +1,7 @@
 import { EDIT_COL1, EDIT_COL2, EDIT_COL3, EDIT_COL4, SHOW_FORM } from "../constans";
 
 let initialState = {
-    formstate: false,
+    formstate: null,
     colid1: "tab1",
     colname1: "TODO",
     colid2: "tab2",
@@ -13,12 +13,13 @@ let initialState = {
 }
 
 let tabReducer = (state = initialState, action) => {
-
+    // alert(action.type);
     switch (action.type) {
         case SHOW_FORM: 
            return state = {
                 ...state,
                 formstate: action.payload
+                
             }
             break;
         case EDIT_COL1: 

@@ -1,4 +1,4 @@
-import { ADD_USER, EDIT_COL1, SHOW_FORM } from "../constans";
+import { ADD_USER, EDIT_COL1, EDIT_COL2, EDIT_COL3, EDIT_COL4, SHOW_FORM } from "../constans";
 
 export let addUser = (value) => {
     return {
@@ -19,13 +19,21 @@ export let editColname = (value, id) => {
     let typeid;
     switch (id) {
         case "tab1": 
-            typeid = EDIT_COL1;
+            typeid = EDIT_COL1
+         break;       
+        case "tab2": 
+            typeid = EDIT_COL2
+         break;       
+        case "tab3": 
+            typeid = EDIT_COL3
+         break;       
+        case "tab4": 
+            typeid = EDIT_COL4
          break;       
     }
-   
+//    alert(typeid + value);
     return {
         type: typeid, 
-        togler: false,
         payload: value
     }
 }

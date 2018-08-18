@@ -7,19 +7,20 @@ import Cardlist from './Cardlist';
 import Collname from './Collname';
 
 class Content extends React.Component {
-    constructor (props) {
-        super (props)
+    // constructor () {
+        
 
-        this.handlerClick = this.handlerClick.bind(this)
-    }
+    //     // this.handlerClick = this.handlerClick.bind(this)
+    // }
 
-    handlerClick(){
-        this.setState({activeForm: "Show"});
-    }
+    // handlerClick(){
+    //     this.setState({activeForm: "Show"});
+    // }
     
     render() {
         return (
             <div class="text-center" id="content">
+            
                 <Collname id={this.props.id} colname={this.props.colname}/>
                 {/* <Cardlist data ={this.data} table={this.data.table}/> */}
             
