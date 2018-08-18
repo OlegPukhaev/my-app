@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import './App.css';
-import { saveData } from './../functions/Functions';
 import {showFormColname, editColname} from './../Actions/Actions'
 
 class Changetitle extends React.Component {
@@ -9,13 +8,11 @@ class Changetitle extends React.Component {
         super(props)
 
         this.state = {colltitle: ""}
-        // this.data = this.props.data
         this.handlerClick = this.handlerClick.bind(this)
         this.handlerChange = this.handlerChange.bind(this)
     }
 
     handlerClick(){
-        // alert(this.state.colltitle);
         if (this.state.colltitle !== ""){
             this.editColname(this.state.colltitle, this.props.id)
             this.showFormColname(false);
@@ -30,9 +27,7 @@ class Changetitle extends React.Component {
         this.setState({colltitle: event.target.value});
     }
 
-
     render () {
-        // alert(this.props.tab.formstate);
         return(
             <div class="userform">
                 <div class="form-group">

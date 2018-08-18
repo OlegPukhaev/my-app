@@ -1,12 +1,9 @@
 import React  from 'react';
 import {Provider, connect} from 'react-redux';
+import Colllist from './Colllist';
 import store from '../store';
-
 import './App.css';
 import '../../src/bootstrap.css';
-import Username from './Username';
-import Colllist from './Colllist';
-import TodoList from './Todolist';
 
 class App extends React.Component {
     constructor () {
@@ -24,9 +21,7 @@ class App extends React.Component {
                 <Provider store={store}>
                     <div>
                         <Colllist />
-                        {/* {this.state.activeWin == null ? <Username updateData={this.updateData}/> : <Colllist />} */}
                     </div>
-                        {/* <TodoList />    */}
                 </Provider>
       );
     }

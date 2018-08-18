@@ -10,8 +10,6 @@ class Collname extends React.Component {
         super()
 
         this.state = {activeID : null}
-
-        // this.data = this.props.data
     }
 
     showFormColname = () => this.props.dispatch(showFormColname(this.props.id));

@@ -22,7 +22,7 @@ class Content extends React.Component {
             <div class="text-center" id="content">
             
                 <Collname id={this.props.id} colname={this.props.colname}/>
-                {/* <Cardlist data ={this.data} table={this.data.table}/> */}
+                <Cardlist />
             
                 <button type="submit" class="btn btn-primary" onClick={this.showWin}>Add Card</button>
                 {/* {this.props.showwin.activeForm === true && <Addcard data={this.data} />} */}

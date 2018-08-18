@@ -31,7 +31,6 @@ export let editColname = (value, id) => {
             typeid = EDIT_COL4
          break;       
     }
-//    alert(typeid + value);
     return {
         type: typeid, 
         payload: value
