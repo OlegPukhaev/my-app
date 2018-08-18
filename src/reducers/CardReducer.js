@@ -3,34 +3,50 @@ import { ADD_CARD } from "../constans";
 let initialState = [
     {
         addCardShowWin: false,
-        tabId:"tab1",
-        taskId:1,
+        tabid:"tab1",
+        taskid:1,
         title: "Купить бочку для пивка",
-        description:"Размазать сельдерей по бочке для лудшего запаха",
+        desc:"Размазать сельдерей по бочке для лудшего запаха",
         autor:"Неизвестная Личность"
     },
     {
         addCardShowWin: false,
-        tabId:"tab2",
-        taskId:2,
+        tabid:"tab2",
+        taskid:2,
         title: "Рыыыыбууууу выкинь",
-        description:"Сделать из рыбы пельмени",
+        desc:"Сделать из рыбы пельмени",
         autor:"Неизвестная Личность"
     },
     {
         addCardShowWin: false,
-        tabId:"tab1",
-        taskId:3,
+        tabid:"tab1",
+        taskid:3,
         title: "Купить бочку для пивка 222",
-        description:"Размазать сельдерей по бочке для лудшего запаха",
+        desc:"Размазать сельдерей по бочке для лудшего запаха",
         autor:"Неизвестная Личность"
     },
     {
         addCardShowWin: false,
-        tabId:"tab4",
-        taskId:4,
+        tabid:"tab4",
+        taskid:4,
         title: "Купить бочку для пивка",
-        description:"Размазать сельдерей по бочке для лудшего запаха",
+        desc:"Размазать сельдерей по бочке для лудшего запаха",
+        autor:"Неизвестная Личность"
+    },
+    {
+        addCardShowWin: false,
+        tabid:"tab3",
+        taskid:5,
+        title: "Купить бочку для пивка",
+        desc:"Размазать сельдерей по бочке для лудшего запаха",
+        autor:"Неизвестная Личность"
+    },
+    {
+        addCardShowWin: false,
+        tabid:"tab4",
+        taskid:6,
+        title: "Купить бочку для пивка",
+        desc:"Размазать сельдерей по бочке для лудшего запаха",
         autor:"Неизвестная Личность"
     }
 ];

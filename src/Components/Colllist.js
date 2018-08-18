@@ -8,10 +8,10 @@ class Board extends React.Component {
     render () {
         return (
             <div>
-                <Content  id={this.props.tab.colid1} colname={this.props.tab.colname1}/>
-                <Content  id={this.props.tab.colid2} colname={this.props.tab.colname2}/>
-                <Content  id={this.props.tab.colid3} colname={this.props.tab.colname3}/>
-                <Content  id={this.props.tab.colid4} colname={this.props.tab.colname4}/>
+                <Content  tabid={this.props.tab.colid1} colname={this.props.tab.colname1}/>
+                <Content  tabid={this.props.tab.colid2} colname={this.props.tab.colname2}/>
+                <Content  tabid={this.props.tab.colid3} colname={this.props.tab.colname3}/>
+                <Content  tabid={this.props.tab.colid4} colname={this.props.tab.colname4}/>
             </div>
         );
     }

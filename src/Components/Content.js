@@ -21,8 +21,8 @@ class Content extends React.Component {
         return (
             <div class="text-center" id="content">
             
-                <Collname id={this.props.id} colname={this.props.colname}/>
-                <Cardlist />
+                <Collname tabid={this.props.tabid} colname={this.props.colname}/>
+                <Cardlist tabid={this.props.tabid}/>
             
                 <button type="submit" class="btn btn-primary" onClick={this.showWin}>Add Card</button>
                 {/* {this.props.showwin.activeForm === true && <Addcard data={this.data} />} */}
