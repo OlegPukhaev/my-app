@@ -1,4 +1,4 @@
-import { ADD_USER, EDIT_COL1, EDIT_COL2, EDIT_COL3, EDIT_COL4, SHOW_FORM } from "../constans";
+import { ADD_USER, EDIT_COL1, EDIT_COL2, EDIT_COL3, EDIT_COL4, SHOW_FORM, ADD_CARD, WIN_STATE } from "../constans";
 
 export let addUser = (value) => {
     return {
@@ -11,6 +11,13 @@ export let addUser = (value) => {
 export let showFormColname = (value) => {
     return {
         type: SHOW_FORM, 
+        payload: value
+    }
+}
+
+export let winStateToggler = (value) => {
+    return {
+        type: WIN_STATE, 
         payload: value
     }
 }

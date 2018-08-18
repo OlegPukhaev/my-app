@@ -35,7 +35,8 @@ class Colllist extends React.Component {
 function mapStateToProps (state){
     return {
         userprops: state.userprops,
-        tab: state.tab
+        tab: state.tab,
+        winstate: state.winstate
     }
 }
 

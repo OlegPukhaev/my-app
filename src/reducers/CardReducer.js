@@ -2,7 +2,6 @@ import { ADD_CARD } from "../constans";
 
 let initialState = [
     {
-        addCardShowWin: false,
         tabid:"tab1",
         taskid:1,
         title: "Купить бочку для пивка",
@@ -10,7 +9,6 @@ let initialState = [
         autor:"Неизвестная Личность"
     },
     {
-        addCardShowWin: false,
         tabid:"tab2",
         taskid:2,
         title: "Рыыыыбууууу выкинь",
@@ -18,7 +16,6 @@ let initialState = [
         autor:"Неизвестная Личность"
     },
     {
-        addCardShowWin: false,
         tabid:"tab1",
         taskid:3,
         title: "Купить бочку для пивка 222",
@@ -26,7 +23,6 @@ let initialState = [
         autor:"Неизвестная Личность"
     },
     {
-        addCardShowWin: false,
         tabid:"tab4",
         taskid:4,
         title: "Купить бочку для пивка",
@@ -34,7 +30,6 @@ let initialState = [
         autor:"Неизвестная Личность"
     },
     {
-        addCardShowWin: false,
         tabid:"tab3",
         taskid:5,
         title: "Купить бочку для пивка",
@@ -42,7 +37,6 @@ let initialState = [
         autor:"Неизвестная Личность"
     },
     {
-        addCardShowWin: false,
         tabid:"tab4",
         taskid:6,
         title: "Купить бочку для пивка",
@@ -58,7 +52,6 @@ let CardReducer = (state = initialState, action) => {
            return state = {
                 ...state,
                 userName: action.payload,
-                activeWin: action.togler
             }
             break;
         default: return state;

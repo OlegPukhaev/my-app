@@ -5,27 +5,29 @@ import Addcard from './Addcard';
 import { getData } from '../functions/Functions';
 import Cardlist from './Cardlist';
 import Collname from './Collname';
+import {winStateToggler} from '../Actions/Actions';
 
 class Content extends React.Component {
-    // constructor () {
-        
+    constructor () {
+        super()
 
-    //     // this.handlerClick = this.handlerClick.bind(this)
-    // }
+        // this.handlerClick = this.handlerClick.bind(this)
+    }
 
     // handlerClick(){
     //     this.setState({activeForm: "Show"});
     // }
     
+    winStateToggler = () => this.props.dispatch(winStateToggler(true));
+
+
     render() {
         return (
             <div class="text-center" id="content">
-            
                 <Collname tabid={this.props.tabid} colname={this.props.colname}/>
                 <Cardlist tabid={this.props.tabid}/>
-            
-                <button type="submit" class="btn btn-primary" onClick={this.showWin}>Add Card</button>
-                {/* {this.props.showwin.activeForm === true && <Addcard data={this.data} />} */}
+                <button type="submit" class="btn btn-primary" onClick={this.winStateToggler}>Add Card</button>
+                {this.props.winstate.addCardWinState === true && <Addcard data={this.data} />}
             </div> 
         );
     }
@@ -33,7 +35,8 @@ class Content extends React.Component {
 
 function mapStateToProps (state){
     return {
-        tab: state.tab
+        tab: state.tab,
+        winstate: state.winstate
     }
 }
 

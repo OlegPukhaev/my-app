@@ -5,6 +5,7 @@ export const EDIT_COL3 = 'EDIT_COL3';
 export const EDIT_COL4 = 'EDIT_COL4';
 export const SHOW_FORM = 'SHOW_FORM';
 export const ADD_CARD = 'ADD_CARD';
+export const WIN_STATE = 'WIN_STATE';
 
 
 export const ADD_TODO = 'ADD_TODO';
