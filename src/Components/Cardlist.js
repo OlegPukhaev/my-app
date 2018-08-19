@@ -54,7 +54,7 @@ class Cardlist extends React.Component {
 function mapStateToProps (state){
     return {
         userprops: state.userprops,
-        cards: state.cards
+        cards: state.cards.card
     }
 }
 

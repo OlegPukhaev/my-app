@@ -27,7 +27,7 @@ class Content extends React.Component {
                 <Collname tabid={this.props.tabid} colname={this.props.colname}/>
                 <Cardlist tabid={this.props.tabid}/>
                 <button type="submit" class="btn btn-primary" onClick={this.winStateToggler}>Add Card</button>
-                {this.props.winstate.addCardWinState === true && <Addcard data={this.data} />}
+                {this.props.winstate.addCardWinState === true && <Addcard tabid={this.props.tabid} />}
             </div> 
         );
     }

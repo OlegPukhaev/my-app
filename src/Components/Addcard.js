@@ -62,7 +62,8 @@ class Addcard extends React.Component {
 function mapStateToProps (state){
     return {
         tab: state.tab,
-        winstate: state.winstate
+        winstate: state.winstate,
+        cards: state.cards
     }
 }
 
