@@ -12,13 +12,13 @@ class Collname extends React.Component {
         this.state = {activeID : null}
     }
 
-    showFormColname = () => this.props.dispatch(showFormColname(this.props.id));
+    showFormColname = () => this.props.dispatch(showFormColname(this.props.tabid));
 
     render() {
         return (
             <div class="text-center">
                 <h3 onClick={this.showFormColname}>{this.props.colname}</h3>
-                {this.props.tab.formstate === this.props.id && <Changetitle id={this.props.id} colname={this.props.colname}/>}
+                {this.props.tab.formstate === this.props.tabid && <Changetitle id={this.props.tabid} colname={this.props.colname}/>}
             </div>
         );
     }

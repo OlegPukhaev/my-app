@@ -23,6 +23,7 @@ export let winStateToggler = (value) => {
 }
 
 export let editColname = (value, id) => {
+    // alert(value);
     let typeid;
     switch (id) {
         case "tab1": 
@@ -30,7 +31,7 @@ export let editColname = (value, id) => {
          break;       
         case "tab2": 
             typeid = EDIT_COL2
-         break;       
+            break;       
         case "tab3": 
             typeid = EDIT_COL3
          break;       

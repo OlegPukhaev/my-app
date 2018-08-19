@@ -14,8 +14,10 @@ class Changetitle extends React.Component {
 
     handlerClick(){
         if (this.state.colltitle !== ""){
-            this.editColname(this.state.colltitle, this.props.id)
+            // alert(this.props.id);
+            this.editColname(this.state.colltitle, this.props.id);
             this.showFormColname(false);
+            
         } else this.showFormColname(false);
     }
 
@@ -31,7 +33,7 @@ class Changetitle extends React.Component {
         return(
             <div class="userform">
                 <div class="form-group">
-                    <input type="text" onChange={this.handlerChange} class="form-control" id="tab1" aria-describedby="emailHelp" placeholder={this.props.colname} />
+                    <input type="text" onChange={this.handlerChange} class="form-control" id={this.props.id} aria-describedby="emailHelp" placeholder={this.props.colname} />
                 </div>
                 <button type="submit" class="btn btn-primary" onClick={this.handlerClick}>Submit</button>
             </div>
