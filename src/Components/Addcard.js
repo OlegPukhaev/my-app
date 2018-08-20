@@ -8,43 +8,33 @@ import {winStateToggler, addCard} from '../Actions/Actions';
 class Addcard extends React.Component {
     constructor (props) {
         super(props)
-        // alert(this.props.tid);
-        // this.data = this.props.data
+
+        this.tabid = this.props.tabid
         this.state = {value: ""}
         this.handlerClick = this.handlerClick.bind(this)
         this.handlerChange = this.handlerChange.bind(this)
     }
 
-    handlerClick(event){
-            // var autor = getData("Username");
-            // alert(this.props.tid);
+    handlerClick(){
             var obj1 = {
-                tabid: this.props.tid,
-                taskid:7,
+                tabid: this.tabid,
+                taskid: 7,
                 title: this.state.value,
                 desc:"Рубкхадлодыо адыоадлыо доыа дыфоадло дфлыоадыфо ",
                 autor:"Неизвестная Личность"
             }
                 
-            // this.props.updateData("hide");
             if (this.state.value) {
-                // alert(this.state.value);
-                // this.data.cards.push(obj1);
                 this.addCard(obj1);
                 this.winStateToggler();
-
-                // saveData(this.props.data, this.props.table);
-            //    addTodo();
-            }
+            } else this.winStateToggler();
     }
-
-    // addTodo = () => this.data.add();
 
     handlerChange(event){
         this.setState({value: event.target.value});
     }
 
-    winStateToggler = (value) => this.props.dispatch(winStateToggler(value));
+    winStateToggler = () => this.props.dispatch(winStateToggler(false));
     addCard = (value) => this.props.dispatch(addCard(value));
 
     render() {
@@ -52,9 +42,10 @@ class Addcard extends React.Component {
             <div >
                 <Darkback tabIndex="0" />
                     <div class="coll bg-lightgray" id="addcard">
+                        {this.props.tabid}
                         <label for="exampleInputEmail1">Add Card Title</label>
                         <input type="text" onChange={this.handlerChange} class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enterr card title" />
-                        <button type="submit" class="btn btn-primary p-2"  onClick={this.handlerClick}>Submit</button>
+                        <button type="submit" class="btn btn-primary p-2" onClick={this.handlerClick}>Submit</button>
                     </div>
             </div> 
         );
@@ -65,16 +56,8 @@ class Addcard extends React.Component {
 
 function mapStateToProps (state){
     return {
-        tab: state.tab,
-        winstate: state.winstate,
-        cards: state.cards
+        winstate: state.winstate
     }
 }
-
-// function mapDispatchToProps(dispatch){
-//     return {
-//         add: () => dispatch(addTodo())
-//     }
-// }
 
 export default connect(mapStateToProps)(Addcard);

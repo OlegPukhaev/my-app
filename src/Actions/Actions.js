@@ -15,15 +15,15 @@ export let showFormColname = (value) => {
     }
 }
 
-export let winStateToggler = (value) => {
+export let winStateToggler = (value, cardid) => {
     return {
         type: WIN_STATE, 
-        payload: value
+        payload: value,
+        addci: cardid
     }
 }
 
 export let addCard = (value) => {
-    // alert(value.tabid);
     return {
         type: ADD_CARD, 
         payload: value
@@ -31,7 +31,6 @@ export let addCard = (value) => {
 }
 
 export let editColname = (value, id) => {
-    // alert(value);
     let typeid;
     switch (id) {
         case "tab1": 
