@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import './App.css';
 // import Comments from './Comments';
-import {delCard} from '../Actions/Actions';
+import {delCard, changeTitle, changeDesc} from '../Actions/Actions';
 import { deleteData, saveData, getData } from '../functions/Functions';
 import Darkback from './Darkback';
 
@@ -11,20 +11,21 @@ class Cardinfo extends React.Component {
         super(props)
 
         // this.data = this.props.data
-        this.data = this.props.data
-        this.id = this.props.id
-        // this.state =    { 
-        //                     title : this.data.cards[this.id].title,
-        //                     showEditTitle : "hide",
-        //                     desc : this.data.cards[this.id].desc,
-        //                     showEditDesc : "hide",
-        //                     tmptext: ""
-        //                 }
+        // this.data = this.props.data
+        // this.cardid = this.props.cardid
+        // this.id = this.props.id
+        this.state =    { 
+                            // title : this.data.cards[this.id].title,
+                            showEditTitle : "hide",
+                            // desc : this.data.cards[this.id].desc,
+                            showEditDesc : "hide",
+                            tmptext: ""
+                        }
         this.handlerClick = this.handlerClick.bind(this)
         this.onclickDelete = this.onclickDelete.bind(this)
         this.onChangeHandler = this.onChangeHandler.bind(this)
         this.onChangedesc = this.onChangedesc.bind(this)
-        this.onclickSave = this.onclickSave.bind(this)
+        // this.onclickSave = this.onclickSave.bind(this)
         this.removeDesc = this.removeDesc.bind(this)
         this.handleKeyDown = this.handleKeyDown.bind(this)
         this.show = this.show.bind(this)
@@ -38,11 +39,7 @@ class Cardinfo extends React.Component {
     delCard = (value) => this.props.dispatch(delCard(value));
 
     onclickDelete () {
-        // alert(this.props.cardid);
-        // deleteData (this.data.cards, this.id);
-        // saveData(this.data, this.props.table);
         this.delCard(this.props.cardid);
-
         this.props.updateData("hide");
     }
 
@@ -54,17 +51,20 @@ class Cardinfo extends React.Component {
         this.setState({desc : event.target.value});
     }
     
-    onclickSave (event){
-        switch (event.target.id) {
-            case "title":
-                this.data.cards[this.id].title = this.state.title;
-            break;
-            case "desc":
-            this.data.cards[this.id].desc = this.state.desc;
-            break;
-        } 
-    }
+    // onclickSave (event){
+    //     switch (event.target.id) {
+    //         case "title":
+    //             this.data.cards[this.id].title = this.state.title;
+    //         break;
+    //         case "desc":
+    //         this.data.cards[this.id].desc = this.state.desc;
+    //         break;
+    //     } 
+    // }
     
+    changeTitle = (value, id) => this.props.dispatch(changeTitle(value, id));
+    changeDesc = (value, id) => this.props.dispatch(changeDesc(value, id));
+
     removeDesc (){
         this.setState({desc: ""});
         this.data.cards[this.id].desc = "";
@@ -75,13 +75,14 @@ class Cardinfo extends React.Component {
             if ((event.key === "Enter") && (this.state.tmptext !== "")) {
                     switch (event.target.id) {
                         case "title":
-                            this.setState({title: this.state.tmptext});
-                            this.data.cards[this.id].title = this.state.tmptext;
+                            this.changeTitle(this.state.tmptext, this.props.cardid );
                             this.setState({showEditTitle: "hide"});
                         break;
                         case "desc":
-                            this.setState({desc: this.state.tmptext});
-                            this.data.cards[this.id].desc = this.state.tmptext;
+                            this.changeDesc(this.state.tmptext, this.props.cardid );
+
+                            // this.setState({desc: this.state.tmptext});
+                            // this.data.cards[this.id].desc = this.state.tmptext;
                             this.setState({showEditDesc: "hide"});
                         break;
                     } 
@@ -115,18 +116,18 @@ class Cardinfo extends React.Component {
                 </button>
                 
                     <h5 class="mt-5 bg-light rounded py-3 " id="title" onClick={this.show}>Title: {this.props.card[this.props.cardid].title}</h5>
-                    {/* {this.state.showEditTitle === "show" && <input id="title" type="text" onKeyDown={this.handleKeyDown} onChange={this.onChangeHandler} class="form-control"/>} */}
+                    {this.state.showEditTitle === "show" && <input id="title" type="text" onKeyDown={this.handleKeyDown} onChange={this.onChangeHandler} class="form-control"/>}
                     <p>from <b>{this.props.colname}</b></p>
                 
                     <h6 id="desc" class="bg-light rounded py-3" onClick={this.show}>Description: {this.props.card[this.props.cardid].desc}</h6>
-                {/*                     
+                                    
             
-            {this.state.showEditDesc === "show" ? (
-                <input type="text" id="desc" onChange={this.onChangeHandler} onKeyDown={this.handleKeyDown}  class="form-control"/>) 
-                : 
-                (<button class="btn btn-danger mt-2" onClick={this.removeDesc}>Remove Description</button>)
-            }
-        */}
+                    {this.state.showEditDesc === "show" ? (
+                        <input type="text" id="desc" onChange={this.onChangeHandler} onKeyDown={this.handleKeyDown}  class="form-control"/>) 
+                        : 
+                        (<button class="btn btn-danger mt-2" onClick={this.removeDesc}>Remove Description</button>)
+                    }
+       
                     <p>Autor: {this.props.card[this.props.cardid].autor}</p>
                 
                     <h5> Комментарии </h5>

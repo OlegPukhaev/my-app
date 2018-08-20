@@ -1,4 +1,4 @@
-import { ADD_USER, EDIT_COL1, EDIT_COL2, EDIT_COL3, EDIT_COL4, SHOW_FORM, ADD_CARD, DEL_CARD, WIN_STATE } from "../constans";
+import { ADD_USER, EDIT_COL1, EDIT_COL2, EDIT_COL3, EDIT_COL4, SHOW_FORM, ADD_CARD, DEL_CARD, WIN_STATE, CHANGE_DESC, CHANGE_TITLE } from "../constans";
 
 export let addUser = (value) => {
     return {
@@ -31,10 +31,25 @@ export let addCard = (value) => {
 }
 
 export let delCard = (value) => {
-    alert(value);
     return {
         type: DEL_CARD, 
         payload: value
+    }
+}
+
+export let changeTitle = (value, id) => {
+    return {
+        type: CHANGE_TITLE, 
+        payload: value,
+        cardid: id
+    }
+}
+
+export let changeDesc = (value, id) => {
+    return {
+        type: CHANGE_DESC, 
+        payload: value,
+        cardid: id
     }
 }
 
@@ -83,8 +98,6 @@ export let editColname = (value, id) => {
 //         payload: value
 //     }
 // }
-
-
 
 // export const deleteTodo = id => ({ type: types.DELETE_TODO, id })
 

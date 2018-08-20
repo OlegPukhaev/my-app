@@ -1,4 +1,4 @@
-import { ADD_CARD, DEL_CARD } from "../constans";
+import { ADD_CARD, DEL_CARD, CHANGE_TITLE, CHANGE_DESC } from "../constans";
 
 let initialState = {
     card :  
@@ -49,29 +49,30 @@ let initialState = {
     }
 
 let CardReducer = (state = initialState, action) => {
-    var cardsclone;
-    var jjj;
-
     switch (action.type) {
         
         case ADD_CARD: 
-        return state = {...state, card: [...state.card, action.payload]}    
+            return state = {...state, card: [...state.card, action.payload]}    
         break;
         case DEL_CARD:
-            // state.card.splice(action.payload,1);
-            // cardsclone = Object.assign({}, state.card)
-            state.card.splice(action.payload,1)
+            state.card.splice(action.payload,1);
         return state = {
             ...state,
             card: [...state.card, state.card]
-        } 
-             
-        // return state = {...state, card: [...state.card.splice(action.payload-1, 1)]}    
-        
-        // return state.card.splice(action.payload, 1)   
-        // data.splice(id, 1);
-        // return state = {...state, card: [...state.card, action.payload]}    
-        
+        }
+        break;
+        case CHANGE_TITLE:
+            state.card[action.cardid].title = action.payload;
+        return state = {
+            ...state,
+            card: [...state.card, state.card]
+        }
+        case CHANGE_DESC:
+            state.card[action.cardid].desc = action.payload;
+        return state = {
+            ...state,
+            card: [...state.card, state.card]
+        }
         break;
         default: return state;
     }

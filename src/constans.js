@@ -6,6 +6,8 @@ export const EDIT_COL4 = 'EDIT_COL4';
 export const SHOW_FORM = 'SHOW_FORM';
 export const ADD_CARD = 'ADD_CARD';
 export const DEL_CARD = 'DEL_CARD';
+export const CHANGE_TITLE = 'CHANGE_TITLE';
+export const CHANGE_DESC = 'CHANGE_DESC';
 
 export const WIN_STATE = 'WIN_STATE';
 
