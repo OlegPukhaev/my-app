@@ -26,8 +26,7 @@ let todoReducer = (state = initialState, action) => {
             break;
 
         case TEXT_TODO: 
-           return state = {...state, lastValues: [...state.lastValues, action.payload]
-            }
+           return state = {...state, lastValues: [...state.lastValues, action.payload]}
             break;
 
         case CHANGE_OBJ: 

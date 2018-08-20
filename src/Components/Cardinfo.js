@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import './App.css';
-import Comments from './Comments';
-import addTodo from '../Actions/Actions';
+// import Comments from './Comments';
+import {delCard} from '../Actions/Actions';
 import { deleteData, saveData, getData } from '../functions/Functions';
 import Darkback from './Darkback';
 
@@ -35,9 +35,14 @@ class Cardinfo extends React.Component {
         this.props.updateData("hide");
     }
 
+    delCard = (value) => this.props.dispatch(delCard(value));
+
     onclickDelete () {
-        deleteData (this.data.cards, this.id);
-        saveData(this.data, this.props.table);
+        // alert(this.props.cardid);
+        // deleteData (this.data.cards, this.id);
+        // saveData(this.data, this.props.table);
+        this.delCard(this.props.cardid);
+
         this.props.updateData("hide");
     }
 
@@ -127,8 +132,8 @@ class Cardinfo extends React.Component {
                     <h5> Комментарии </h5>
         {/*                     
                     <Comments comments={this.data.cards[this.id].comments} data={this.data} table={this.props.table} id={this.id}/>
-                    <button class="btn btn-danger mt-1" onClick={this.onclickDelete}>Delete Card</button>
                 */}
+                    <button class="btn btn-danger mt-1" onClick={this.onclickDelete}>Delete Card</button>
                     <button type="button" class="btn btn-primary mt-1 ml-3" aria-label="Close" onClick={this.handlerClick}>
                          Close window
                     </button>

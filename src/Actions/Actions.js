@@ -1,4 +1,4 @@
-import { ADD_USER, EDIT_COL1, EDIT_COL2, EDIT_COL3, EDIT_COL4, SHOW_FORM, ADD_CARD, WIN_STATE } from "../constans";
+import { ADD_USER, EDIT_COL1, EDIT_COL2, EDIT_COL3, EDIT_COL4, SHOW_FORM, ADD_CARD, DEL_CARD, WIN_STATE } from "../constans";
 
 export let addUser = (value) => {
     return {
@@ -26,6 +26,14 @@ export let winStateToggler = (value, cardid) => {
 export let addCard = (value) => {
     return {
         type: ADD_CARD, 
+        payload: value
+    }
+}
+
+export let delCard = (value) => {
+    alert(value);
+    return {
+        type: DEL_CARD, 
         payload: value
     }
 }
