@@ -54,6 +54,9 @@ let CardReducer = (state = initialState, action) => {
         case ADD_CARD: 
         return state = {...state, card: [...state.card, action.payload]}    
         break;
+        case ADD_CARD: 
+        return state = {...state, card: [...state.card, action.payload]}    
+        break;
         default: return state;
     }
 };

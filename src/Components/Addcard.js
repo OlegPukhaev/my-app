@@ -50,8 +50,6 @@ class Addcard extends React.Component {
             </div> 
         );
     }
-
-
 }
 
 function mapStateToProps (state){

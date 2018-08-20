@@ -25,9 +25,9 @@ class Content extends React.Component {
         return (
             <div class="text-center" id="content">
                 <Collname tabid={this.props.tabid} colname={this.props.colname}/>
-                <Cardlist tabid={this.props.tabid}/>
+                <Cardlist tabid={this.props.tabid} colname={this.props.colname}/>
                 <button type="submit" class="btn btn-primary" id={this.props.tabid} onClick={this.handlerClick}>Add Card</button>
-                {this.props.winstate.addcardid === this.props.tabid && <Addcard tabid={this.props.tabid} />}
+                {this.props.winstate.addcardid === this.props.tabid && <Addcard tabid={this.props.tabid}/>}
             </div> 
         );
     }
