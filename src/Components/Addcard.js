@@ -21,7 +21,7 @@ class Addcard extends React.Component {
                 taskid: 7,
                 title: this.state.value,
                 desc:"",
-                autor:"Неизвестная Личность"
+                autor: this.props.username
             }
                 
             if (this.state.value) {

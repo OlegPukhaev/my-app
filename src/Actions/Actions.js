@@ -54,7 +54,6 @@ export let changeDesc = (value, id) => {
 }
 
 export let removeDesc = (id) => {
-    alert("kkk");
     return {
         type: REMOVE_DESC, 
         cardid: id
