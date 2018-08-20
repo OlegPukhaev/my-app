@@ -1,4 +1,4 @@
-import { ADD_USER, EDIT_COL1, EDIT_COL2, EDIT_COL3, EDIT_COL4, SHOW_FORM, ADD_CARD, DEL_CARD, WIN_STATE, CHANGE_DESC, CHANGE_TITLE } from "../constans";
+import { REMOVE_DESC, ADD_USER, EDIT_COL1, EDIT_COL2, EDIT_COL3, EDIT_COL4, SHOW_FORM, ADD_CARD, DEL_CARD, WIN_STATE, CHANGE_DESC, CHANGE_TITLE } from "../constans";
 
 export let addUser = (value) => {
     return {
@@ -49,6 +49,14 @@ export let changeDesc = (value, id) => {
     return {
         type: CHANGE_DESC, 
         payload: value,
+        cardid: id
+    }
+}
+
+export let removeDesc = (id) => {
+    alert("kkk");
+    return {
+        type: REMOVE_DESC, 
         cardid: id
     }
 }

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import './App.css';
 // import Comments from './Comments';
-import {delCard, changeTitle, changeDesc} from '../Actions/Actions';
+import {delCard, changeTitle, changeDesc, removeDesc} from '../Actions/Actions';
 import { deleteData, saveData, getData } from '../functions/Functions';
 import Darkback from './Darkback';
 
@@ -26,7 +26,7 @@ class Cardinfo extends React.Component {
         this.onChangeHandler = this.onChangeHandler.bind(this)
         this.onChangedesc = this.onChangedesc.bind(this)
         // this.onclickSave = this.onclickSave.bind(this)
-        this.removeDesc = this.removeDesc.bind(this)
+        // this.removeDesc = this.removeDesc.bind(this)
         this.handleKeyDown = this.handleKeyDown.bind(this)
         this.show = this.show.bind(this)
         this.keyBoardevent = this.keyBoardevent.bind(this)
@@ -64,12 +64,14 @@ class Cardinfo extends React.Component {
     
     changeTitle = (value, id) => this.props.dispatch(changeTitle(value, id));
     changeDesc = (value, id) => this.props.dispatch(changeDesc(value, id));
+    removeDesc = () => this.props.dispatch(removeDesc(this.props.cardid));
 
-    removeDesc (){
-        this.setState({desc: ""});
-        this.data.cards[this.id].desc = "";
-        saveData(this.data, this.props.table);
-    }
+    // removeDesc (){
+    //     // this.setState({desc: ""});
+    //     // this.data.cards[this.id].desc = "";
+    //     // saveData(this.data, this.props.table);
+    //     this.removeDesc(this.props.cardid);
+    // }
 
     handleKeyDown (event){
             if ((event.key === "Enter") && (this.state.tmptext !== "")) {

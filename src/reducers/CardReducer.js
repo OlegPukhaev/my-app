@@ -1,4 +1,4 @@
-import { ADD_CARD, DEL_CARD, CHANGE_TITLE, CHANGE_DESC } from "../constans";
+import { ADD_CARD, DEL_CARD, CHANGE_TITLE, CHANGE_DESC, REMOVE_DESC } from "../constans";
 
 let initialState = {
     card :  
@@ -69,6 +69,12 @@ let CardReducer = (state = initialState, action) => {
         }
         case CHANGE_DESC:
             state.card[action.cardid].desc = action.payload;
+        return state = {
+            ...state,
+            card: [...state.card, state.card]
+        }
+        case REMOVE_DESC:
+            state.card[action.cardid].desc = "";
         return state = {
             ...state,
             card: [...state.card, state.card]

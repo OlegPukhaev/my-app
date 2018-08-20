@@ -20,7 +20,7 @@ class Addcard extends React.Component {
                 tabid: this.tabid,
                 taskid: 7,
                 title: this.state.value,
-                desc:"Рубкхадлодыо адыоадлыо доыа дыфоадло дфлыоадыфо ",
+                desc:"",
                 autor:"Неизвестная Личность"
             }
                 

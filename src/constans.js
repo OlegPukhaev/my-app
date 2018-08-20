@@ -8,6 +8,7 @@ export const ADD_CARD = 'ADD_CARD';
 export const DEL_CARD = 'DEL_CARD';
 export const CHANGE_TITLE = 'CHANGE_TITLE';
 export const CHANGE_DESC = 'CHANGE_DESC';
+export const REMOVE_DESC = 'REMOVE_DESC';
 
 export const WIN_STATE = 'WIN_STATE';
 
