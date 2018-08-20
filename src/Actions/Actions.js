@@ -22,6 +22,14 @@ export let winStateToggler = (value) => {
     }
 }
 
+export let addCard = (value) => {
+    // alert(value.tabid);
+    return {
+        type: ADD_CARD, 
+        payload: value
+    }
+}
+
 export let editColname = (value, id) => {
     // alert(value);
     let typeid;

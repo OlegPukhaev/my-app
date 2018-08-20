@@ -11,23 +11,28 @@ class Content extends React.Component {
     constructor () {
         super()
 
-        // this.handlerClick = this.handlerClick.bind(this)
+        this.handlerClick = this.handlerClick.bind(this)
+        this.state = {addcardid : "jj"}
     }
 
-    // handlerClick(){
-    //     this.setState({activeForm: "Show"});
-    // }
+    handlerClick(event){
+        alert("fff" + event.target.id);
+        this.setState({addcardid: event.target.id});
+        this.winStateToggler();
+    }
     
     winStateToggler = () => this.props.dispatch(winStateToggler(true));
 
 
     render() {
+        // alert("kkk " + this.state.addcardid);
         return (
             <div class="text-center" id="content">
                 <Collname tabid={this.props.tabid} colname={this.props.colname}/>
                 <Cardlist tabid={this.props.tabid}/>
-                <button type="submit" class="btn btn-primary" onClick={this.winStateToggler}>Add Card</button>
-                {this.props.winstate.addCardWinState === true && <Addcard tabid={this.props.tabid} />}
+                <button type="submit" class="btn btn-primary" id={this.props.tabid} onClick={this.handlerClick}>Add Card</button>
+                
+                {this.props.winstate.addCardWinState === true && <Addcard tid={this.state.addcardid} />}
             </div> 
         );
     }

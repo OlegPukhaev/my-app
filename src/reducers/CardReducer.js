@@ -52,12 +52,8 @@ let CardReducer = (state = initialState, action) => {
 
     switch (action.type) {
         case ADD_CARD: 
-        //    return state = {
-        //         ...state,
-        //         userName: action.payload,
-        //     }
-            return state = {...state, card: [...state.card, action.title]}
-            break;
+        return state = {...state, card: [...state.card, action.payload]}    
+        break;
         default: return state;
     }
 };
