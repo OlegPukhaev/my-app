@@ -1,7 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import './App.css';
-import { saveData } from './../functions/Functions';
 import {showFormColname} from './../Actions/Actions'
 import Changetitle from './Changetitle';
 

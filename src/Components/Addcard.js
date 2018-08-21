@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import './App.css';
-import { saveData, getData } from './../functions/Functions';
+// import { saveData, getData } from './../functions/Functions';
 import Darkback from './Darkback';
 import {winStateToggler, addCard} from '../Actions/Actions';
 

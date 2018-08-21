@@ -2,7 +2,6 @@ import React from 'react';
 import {connect} from 'react-redux';
 import './App.css';
 import Addcard from './Addcard';
-import { getData } from '../functions/Functions';
 import Cardlist from './Cardlist';
 import Collname from './Collname';
 import {winStateToggler} from '../Actions/Actions';

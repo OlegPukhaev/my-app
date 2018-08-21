@@ -3,21 +3,13 @@ import {connect} from 'react-redux';
 import './App.css';
 import Comments from './Comments';
 import {delCard, changeTitle, changeDesc, removeDesc} from '../Actions/Actions';
-import { deleteData, saveData, getData } from '../functions/Functions';
 import Darkback from './Darkback';
 
 class Cardinfo extends React.Component {
     constructor (props) {
         super(props)
-
-        // this.data = this.props.data
-        // this.data = this.props.data
-        // this.cardid = this.props.cardid
-        // this.id = this.props.id
         this.state =    { 
-                            // title : this.data.cards[this.id].title,
                             showEditTitle : "hide",
-                            // desc : this.data.cards[this.id].desc,
                             showEditDesc : "hide",
                             tmptext: ""
                         }
@@ -25,8 +17,6 @@ class Cardinfo extends React.Component {
         this.onclickDelete = this.onclickDelete.bind(this)
         this.onChangeHandler = this.onChangeHandler.bind(this)
         this.onChangedesc = this.onChangedesc.bind(this)
-        // this.onclickSave = this.onclickSave.bind(this)
-        // this.removeDesc = this.removeDesc.bind(this)
         this.handleKeyDown = this.handleKeyDown.bind(this)
         this.show = this.show.bind(this)
         this.keyBoardevent = this.keyBoardevent.bind(this)
@@ -51,27 +41,9 @@ class Cardinfo extends React.Component {
         this.setState({desc : event.target.value});
     }
     
-    // onclickSave (event){
-    //     switch (event.target.id) {
-    //         case "title":
-    //             this.data.cards[this.id].title = this.state.title;
-    //         break;
-    //         case "desc":
-    //         this.data.cards[this.id].desc = this.state.desc;
-    //         break;
-    //     } 
-    // }
-    
     changeTitle = (value, id) => this.props.dispatch(changeTitle(value, id));
     changeDesc = (value, id) => this.props.dispatch(changeDesc(value, id));
     removeDesc = () => this.props.dispatch(removeDesc(this.props.cardid));
-
-    // removeDesc (){
-    //     // this.setState({desc: ""});
-    //     // this.data.cards[this.id].desc = "";
-    //     // saveData(this.data, this.props.table);
-    //     this.removeDesc(this.props.cardid);
-    // }
 
     handleKeyDown (event){
             if ((event.key === "Enter") && (this.state.tmptext !== "")) {
@@ -82,13 +54,9 @@ class Cardinfo extends React.Component {
                         break;
                         case "desc":
                             this.changeDesc(this.state.tmptext, this.props.cardid );
-
-                            // this.setState({desc: this.state.tmptext});
-                            // this.data.cards[this.id].desc = this.state.tmptext;
                             this.setState({showEditDesc: "hide"});
                         break;
                     } 
-                    saveData(this.data, this.props.table);   
             }
       } 
 
@@ -149,7 +117,6 @@ class Cardinfo extends React.Component {
 
 function mapStateToProps (state){
 	return {
-		// userprops: state.userprops,
 		card: state.cards.card
 	}
 }

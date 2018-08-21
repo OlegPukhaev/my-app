@@ -2,7 +2,6 @@ import React  from 'react';
 import {connect} from 'react-redux';
 import addUser from './../Actions/Actions'; 
 import './App.css';
-// import { saveData } from '../functions/Functions';
 import Darkback from './Darkback';
 
 class Username extends React.Component {
@@ -18,8 +17,6 @@ class Username extends React.Component {
 
     handlerClick(value){
         if (this.state.username !== ""){
-            // this.props.updateData("Content");
-            // saveData(this.state.username, "Username");
             this.addUser;
         } else alert ("Enter Username");
     }

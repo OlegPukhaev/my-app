@@ -3,24 +3,17 @@ import {connect} from 'react-redux';
 import './App.css';
 import Cardinfo from './Cardinfo';
 
-
-
 class Cardlist extends React.Component {
     constructor (props) {
         super(props)
 
         this.state = {showWin: "show"}
         this.state = {activeId: null}
-        // this.data = this.props.data;
-        // this.cards = this.data.cards
-        // this.tabid = this.props.tabid
         this.handlerClick = this.handlerClick.bind(this)
         this.updateData = this.updateData.bind(this)
     }
 
     handlerClick (event){
-        // alert("tid" + event.target.id);
-        
         this.setState({showWin: "show"});
         this.setState({activeId: event.target.id});
     }
@@ -49,7 +42,6 @@ class Cardlist extends React.Component {
         return (
             
             <div id="cardlist">
-            {/* {alert(this.props.userprops.userName)} */}
                 {this.state.showWin === "show" && <Cardinfo username={this.props.userprops.userName} tabid ={tid} cardid={this.state.activeId} updateData={this.updateData} colname={this.props.colname}/>}
                 <div class="col-12">
                     {listItems}

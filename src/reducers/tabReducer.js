@@ -13,7 +13,6 @@ let initialState = {
 }
 
 let tabReducer = (state = initialState, action) => {
-    // alert(action.type);
     switch (action.type) {
         case SHOW_FORM: 
            return state = {
