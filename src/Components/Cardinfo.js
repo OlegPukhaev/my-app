@@ -135,7 +135,7 @@ class Cardinfo extends React.Component {
 					<h5> Комментарии </h5>
 
 					{console.log(this.props.card[this.props.cardid].taskid)}     
-					<Comments taskid={this.props.card[this.props.cardid].taskid}/>
+					<Comments taskid={this.props.card[this.props.cardid].taskid} username={this.props.username}/>
 			
 					<button class="btn btn-danger mt-1" onClick={this.onclickDelete}>Delete Card</button>
 					<button type="button" class="btn btn-primary mt-1 ml-3" aria-label="Close" onClick={this.handlerClick}>

@@ -17,6 +17,36 @@ let initialState = {
             taskid:3,
             comment: "Комент 3",
             autor: "User2"
+        },
+        {
+            taskid:3,
+            comment: "Комент 3",
+            autor: "User2"
+        },
+        {
+            taskid:1,
+            comment: "Комент 1",
+            autor: "User2"
+        },
+        {
+            taskid:1,
+            comment: "Комент 1",
+            autor: "User2"
+        },
+        {
+            taskid:1,
+            comment: "Комент 1",
+            autor: "User2"
+        },
+        {
+            taskid:5,
+            comment: "Комент 5",
+            autor: "User2"
+        },
+        {
+            taskid:6,
+            comment: "Комент 6",
+            autor: "User2"
         }
         
     ]
@@ -36,7 +66,9 @@ let CommentReducer = (state = initialState, action) => {
             }
             break;
         case CHANGE_COMMENT:
-            state.comments[action.cardid].title = action.payload;
+            state.comments[action.commentid].comment = action.payload;
+            state.comments[action.commentid].autor = action.user;
+            console.log(state.comments[action.commentid].comment);
         return state = {
             ...state,
             comments: [...state.comments, state.comments]

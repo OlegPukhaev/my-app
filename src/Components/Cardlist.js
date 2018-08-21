@@ -49,7 +49,8 @@ class Cardlist extends React.Component {
         return (
             
             <div id="cardlist">
-                {this.state.showWin === "show" && <Cardinfo tabid ={tid} cardid={this.state.activeId} updateData={this.updateData} colname={this.props.colname}/>}
+            {/* {alert(this.props.userprops.userName)} */}
+                {this.state.showWin === "show" && <Cardinfo username={this.props.userprops.userName} tabid ={tid} cardid={this.state.activeId} updateData={this.updateData} colname={this.props.colname}/>}
                 <div class="col-12">
                     {listItems}
                 </div>

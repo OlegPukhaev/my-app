@@ -118,8 +118,8 @@ export let changeComment = (value, id, username) => {
   return {
       type: CHANGE_COMMENT, 
       payload: value,
-      cardid: id,
-      autor: username
+      commentid: id,
+      user: username,
   }
 }
 
