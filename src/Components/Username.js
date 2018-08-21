@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React  from 'react';
 import {connect} from 'react-redux';
 import addUser from './../Actions/Actions'; 
 import './App.css';
-import { saveData } from '../functions/Functions';
+// import { saveData } from '../functions/Functions';
 import Darkback from './Darkback';
 
 class Username extends React.Component {
@@ -32,12 +32,12 @@ class Username extends React.Component {
         return (
         <div>
             <Darkback />
-            <div id="user" class="coll">
+            <div id="user" className="coll">
                 <div class="userform">
-                    <div class="form-group">
-                        <input type="text" onChange={this.handlerChange} class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter UserName Here!" />
+                    <div className="form-group">
+                        <input type="text" onChange={this.handlerChange} className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter UserName Here!" />
                     </div>
-                    <button type="submit" class="btn btn-primary" onClick={this.addUser}>Submit</button>
+                    <button type="submit" className="btn btn-primary" onClick={this.addUser}>Submit</button>
                 </div>
             </div> 
         </div>

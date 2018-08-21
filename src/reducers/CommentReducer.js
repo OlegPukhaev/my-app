@@ -20,32 +20,32 @@ let initialState = {
         },
         {
             taskid:3,
-            comment: "Комент 3",
+            comment: "Комент 4",
+            autor: "User3"
+        },
+        {
+            taskid:1,
+            comment: "Комент 5",
+            autor: "User5"
+        },
+        {
+            taskid:1,
+            comment: "Комент 6",
             autor: "User2"
         },
         {
             taskid:1,
-            comment: "Комент 1",
-            autor: "User2"
-        },
-        {
-            taskid:1,
-            comment: "Комент 1",
-            autor: "User2"
-        },
-        {
-            taskid:1,
-            comment: "Комент 1",
+            comment: "Комент 7",
             autor: "User2"
         },
         {
             taskid:5,
-            comment: "Комент 5",
+            comment: "Комент 8",
             autor: "User2"
         },
         {
             taskid:6,
-            comment: "Комент 6",
+            comment: "Комент 9",
             autor: "User2"
         }
         

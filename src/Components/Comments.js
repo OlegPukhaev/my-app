@@ -1,17 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {connect} from 'react-redux';
-import {changeComment} from '../Actions/Actions';
+import {changeComment, addComment, delComment} from '../Actions/Actions';
 import './App.css';
 import { deleteData, saveData, getData} from '../functions/Functions';
 
 class Comments extends React.Component {
     constructor (props) {
         super(props)
-
-        // this.data = this.props.data
-        // this.id = this.props.id
-        // this.table = this.props.table
-        // this.comments = this.props.comments
 
         this.state = {  
                         newcomment : "",
@@ -28,62 +23,44 @@ class Comments extends React.Component {
     }
 
     onclickDeletecomment (event) {
-        deleteData(this.comments, event.target.id);   
-        this.setState ({
-            testcomment : this.comments
-        });
-        saveData(this.data, this.props.table); 
+			this.delComment(event.target.id);
     }
 
     handlerChange (event) {
-        this.setState({newcomment : event.target.value});
+				this.setState({newcomment : event.target.value});
     }
 
     onclickNewcomment () {
-        if(this.state.newcomment !==""){        
-            var autor = getData("Username");
-            var commentval = {
-                "comment" : this.state.newcomment,
-                "autor": autor    
-            };
-            this.comments.push(commentval);
-            saveData(this.data, this.props.table);
-            this.setState ({
-                testcomment : this.comments
-            });
+				var commentobj = {};
+        if(this.state.newcomment !==""){  
+							commentobj = {
+									taskid : this.props.taskid,
+									comment : this.state.newcomment,
+									autor : this.props.username
+								}   
+
+								this.addComment(commentobj);
         }
     }
 
     changeComment = (value, id, username) => this.props.dispatch(changeComment(value, id, username));
-
+    addComment = (value, username, tid) => this.props.dispatch(addComment(value, username, tid));
+    delComment = (commid) => this.props.dispatch(delComment(commid));
 
     saveEditcomment (event) {
 			if (this.state.newcomment !== ""){
-				
-				// console.log(this.state.newcomment);
 				this.changeComment(this.state.newcomment, event.target.id, this.props.username);
-				// var autor = getData("Username");
-				// this.comments[event.target.id].comment = this.state.newcomment;
-				// this.comments.autor = autor;
-				// saveData(this.data, this.props.table);
-				// this.setState ({
-				// 		testcomment : this.comments
-				// });
 				this.setState({editcomment: "hide"});
 			} else this.setState({editcomment: "hide"});
     } 
 
     onclickEditcomment (event){
-		
 			this.setState({editcomment: event.target.id});
-			// alert(this.state.editcomment);
-			console.log(event.target.id);
     } 
 
     onchangeEdit (event) {
 			this.setState({newcomment: event.target.value});
     }
-
 
     eachComments(item, i) {
 			if (item.taskid === this.props.taskid) {

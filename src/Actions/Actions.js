@@ -99,11 +99,10 @@ export let editColname = (value, id) => {
     }
 }
 
-export let addComment = (value, username) => {
+export let addComment = (value) => {
   return {
       type: ADD_COMMENT, 
       payload: value,
-      autor: username
   }
 }
 
