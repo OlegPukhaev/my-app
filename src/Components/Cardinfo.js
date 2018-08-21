@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import './App.css';
 import Comments from './Comments';
-import {delCard, changeTitle, changeDesc, removeDesc} from '../Actions/Actions';
+import {delCard, changeTitle, changeDesc, removeDesc, delComment} from '../Actions/Actions';
 import Darkback from './Darkback';
 
 class Cardinfo extends React.Component {
@@ -11,15 +11,19 @@ class Cardinfo extends React.Component {
         this.state =    { 
                             showEditTitle : "hide",
                             showEditDesc : "hide",
-                            tmptext: ""
+														tmptext: "",
+														commentindex : null
                         }
+
+        this.taskid = this.props.card[this.props.cardid].taskid   
         this.handlerClick = this.handlerClick.bind(this)
         this.onclickDelete = this.onclickDelete.bind(this)
         this.onChangeHandler = this.onChangeHandler.bind(this)
         this.onChangedesc = this.onChangedesc.bind(this)
         this.handleKeyDown = this.handleKeyDown.bind(this)
         this.show = this.show.bind(this)
-        this.keyBoardevent = this.keyBoardevent.bind(this)
+				this.keyBoardevent = this.keyBoardevent.bind(this)
+				this.delComment = this.delComment.bind(this)
     }
 
     handlerClick () {
@@ -29,7 +33,7 @@ class Cardinfo extends React.Component {
     delCard = (value) => this.props.dispatch(delCard(value));
 
     onclickDelete () {
-        this.delCard(this.props.cardid);
+				this.delCard(this.props.cardid);
         this.props.updateData("hide");
     }
 
@@ -44,6 +48,7 @@ class Cardinfo extends React.Component {
     changeTitle = (value, id) => this.props.dispatch(changeTitle(value, id));
     changeDesc = (value, id) => this.props.dispatch(changeDesc(value, id));
     removeDesc = () => this.props.dispatch(removeDesc(this.props.cardid));
+    delComment = (id) => this.props.dispatch(delComment(id));
 
     handleKeyDown (event){
             if ((event.key === "Enter") && (this.state.tmptext !== "")) {
@@ -75,6 +80,8 @@ class Cardinfo extends React.Component {
 			{event.key === "Escape" && this.props.updateData("hide");}
 	}
 
+    
+
     render() {
 			return (
 				<div tabIndex="0" >
@@ -102,10 +109,9 @@ class Cardinfo extends React.Component {
 			
 					<h5> Комментарии </h5>
 
-					{console.log(this.props.card[this.props.cardid].taskid)}     
 					<Comments taskid={this.props.card[this.props.cardid].taskid} username={this.props.username}/>
-			
-					<button class="btn btn-danger mt-1" onClick={this.onclickDelete}>Delete Card</button>
+
+					<button id={this.props.card[this.props.cardid].taskid} class="btn btn-danger mt-1" onClick={this.onclickDelete}>Delete Card</button>
 					<button type="button" class="btn btn-primary mt-1 ml-3" aria-label="Close" onClick={this.handlerClick}>
 								Close window
 					</button>
@@ -117,7 +123,8 @@ class Cardinfo extends React.Component {
 
 function mapStateToProps (state){
 	return {
-		card: state.cards.card
+        card: state.cards.card,
+        comments: state.storecomments.comments
 	}
 }
 

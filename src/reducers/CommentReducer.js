@@ -30,11 +30,6 @@ let initialState = {
         },
         {
             taskid:1,
-            comment: "Комент 6",
-            autor: "User2"
-        },
-        {
-            taskid:1,
             comment: "Комент 7",
             autor: "User2"
         },
