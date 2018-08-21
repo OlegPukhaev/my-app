@@ -1,4 +1,21 @@
-import { REMOVE_DESC, ADD_USER, EDIT_COL1, EDIT_COL2, EDIT_COL3, EDIT_COL4, SHOW_FORM, ADD_CARD, DEL_CARD, WIN_STATE, CHANGE_DESC, CHANGE_TITLE } from "../constans";
+import { 
+        REMOVE_DESC, 
+        ADD_USER, 
+        EDIT_COL1, 
+        EDIT_COL2, 
+        EDIT_COL3, 
+        EDIT_COL4, 
+        SHOW_FORM, 
+        ADD_CARD, 
+        DEL_CARD, 
+        WIN_STATE,
+        CHANGE_DESC, 
+        CHANGE_TITLE,
+        ADD_COMMENT,
+        DEL_COMMENT,
+        CHANGE_COMMENT
+    
+    } from "../constans";
 
 export let addUser = (value) => {
     return {
@@ -10,8 +27,8 @@ export let addUser = (value) => {
 
 export let showFormColname = (value) => {
     return {
-        type: SHOW_FORM, 
-        payload: value
+      type: SHOW_FORM, 
+       payload: value
     }
 }
 
@@ -81,6 +98,31 @@ export let editColname = (value, id) => {
         payload: value
     }
 }
+
+export let addComment = (value, username) => {
+  return {
+      type: ADD_COMMENT, 
+      payload: value,
+      autor: username
+  }
+}
+
+export let delComment = (value) => {
+  return {
+      type: DEL_COMMENT, 
+      payload: value,
+  }
+}
+
+export let changeComment = (value, id, username) => {
+  return {
+      type: CHANGE_COMMENT, 
+      payload: value,
+      cardid: id,
+      autor: username
+  }
+}
+
 
 // export let delTodo = (value) => {
 //     return {

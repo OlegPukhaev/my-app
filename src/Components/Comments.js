@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
 import './App.css';
 import { deleteData, saveData, getData} from '../functions/Functions';
 
@@ -6,12 +7,12 @@ class Comments extends React.Component {
     constructor (props) {
         super(props)
 
-        this.data = this.props.data
-        this.id = this.props.id
-        this.table = this.props.table
-        this.comments = this.props.comments
+        // this.data = this.props.data
+        // this.id = this.props.id
+        // this.table = this.props.table
+        // this.comments = this.props.comments
 
-        this.state = {  testcomment : this.comments,
+        this.state = {  
                         newcomment : "",
                         editcomment: "hide"
         }
@@ -90,10 +91,13 @@ class Comments extends React.Component {
     }
 
     render() {
+        // alert(this.props.scomments[0].comment);
         return (
             <div id="cardlist">
                 <div class="coll-12">
-                    {this.state.testcomment.map(this.eachComments)}
+                    {/* {alert(this.props.comments)} */}
+                    {/* {console.log(this.props.comments[1].comment)} */}
+                    {this.props.comments.map(this.eachComments)}
                 </div>
                     <div>
                         <input type="text" onChange={this.handlerChange} class="form-control" id="exampleInputEmail1" placeholder="Add new comment" />
@@ -104,4 +108,12 @@ class Comments extends React.Component {
     }
 }
 
-export default Comments;
+
+function mapStateToProps (state){
+	return {
+		// userprops: state.userprops,
+		comments: state.storecomments.comments
+	}
+}
+
+export default connect(mapStateToProps)(Comments);

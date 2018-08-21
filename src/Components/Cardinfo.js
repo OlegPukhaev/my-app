@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import './App.css';
-// import Comments from './Comments';
+import Comments from './Comments';
 import {delCard, changeTitle, changeDesc, removeDesc} from '../Actions/Actions';
 import { deleteData, saveData, getData } from '../functions/Functions';
 import Darkback from './Darkback';
@@ -103,54 +103,55 @@ class Cardinfo extends React.Component {
           }
       }
       
-    keyBoardevent (event){
-        {event.key === "Escape" && this.props.updateData("hide");}
-    }
+	keyBoardevent (event){
+			{event.key === "Escape" && this.props.updateData("hide");}
+	}
 
     render() {
-        return (
-            <div tabIndex="0" >
-                <Darkback tabIndex="0" />
-                <div class="bg-light" id="cardinfo" class="border border-primary" tabIndex="0" onKeyDown={this.keyBoardevent}>
-                
-                <button type="button" class="close" aria-label="Close" onClick={this.handlerClick}>
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                
-                    <h5 class="mt-5 bg-light rounded py-3 " id="title" onClick={this.show}>Title: {this.props.card[this.props.cardid].title}</h5>
-                    {this.state.showEditTitle === "show" && <input id="title" type="text" onKeyDown={this.handleKeyDown} onChange={this.onChangeHandler} class="form-control"/>}
-                    <p>from <b>{this.props.colname}</b></p>
-                
-                    <h6 id="desc" class="bg-light rounded py-3" onClick={this.show}>Description: {this.props.card[this.props.cardid].desc}</h6>
-                                    
-            
-                    {this.state.showEditDesc === "show" ? (
-                        <input type="text" id="desc" onChange={this.onChangeHandler} onKeyDown={this.handleKeyDown}  class="form-control"/>) 
-                        : 
-                        (<button class="btn btn-danger mt-2" onClick={this.removeDesc}>Remove Description</button>)
-                    }
-       
-                    <p>Autor: {this.props.card[this.props.cardid].autor}</p>
-                
-                    <h5> Комментарии </h5>
-        {/*                     
-                    <Comments comments={this.data.cards[this.id].comments} data={this.data} table={this.props.table} id={this.id}/>
-                */}
-                    <button class="btn btn-danger mt-1" onClick={this.onclickDelete}>Delete Card</button>
-                    <button type="button" class="btn btn-primary mt-1 ml-3" aria-label="Close" onClick={this.handlerClick}>
-                         Close window
-                    </button>
-                </div> 
-            </div>
-        );
-    }
+			return (
+				<div tabIndex="0" >
+					<Darkback tabIndex="0" />
+					<div class="bg-light" id="cardinfo" class="border border-primary" tabIndex="0" onKeyDown={this.keyBoardevent}>
+					
+					<button type="button" class="close" aria-label="Close" onClick={this.handlerClick}>
+							<span aria-hidden="true">&times;</span>
+					</button>
+					
+					<h5 class="mt-5 bg-light rounded py-3 " id="title" onClick={this.show}>Title: {this.props.card[this.props.cardid].title}</h5>
+					{this.state.showEditTitle === "show" && <input id="title" type="text" onKeyDown={this.handleKeyDown} onChange={this.onChangeHandler} class="form-control"/>}
+					<p>from <b>{this.props.colname}</b></p>
+			
+					<h6 id="desc" class="bg-light rounded py-3" onClick={this.show}>Description: {this.props.card[this.props.cardid].desc}</h6>
+													
+	
+					{this.state.showEditDesc === "show" ? (
+							<input type="text" id="desc" onChange={this.onChangeHandler} onKeyDown={this.handleKeyDown}  class="form-control"/>) 
+							: 
+							(<button class="btn btn-danger mt-2" onClick={this.removeDesc}>Remove Description</button>)
+					}
+
+					<p>Autor: {this.props.card[this.props.cardid].autor}</p>
+			
+					<h5> Комментарии </h5>
+
+					{console.log(this.props.card[this.props.cardid].taskid)}     
+					<Comments taskid={this.props.card[this.props.cardid].taskid}/>
+			
+					<button class="btn btn-danger mt-1" onClick={this.onclickDelete}>Delete Card</button>
+					<button type="button" class="btn btn-primary mt-1 ml-3" aria-label="Close" onClick={this.handlerClick}>
+								Close window
+					</button>
+					</div> 
+			</div>
+		);
+	}
 }
 
 function mapStateToProps (state){
-    return {
-        // userprops: state.userprops,
-        card: state.cards.card
-    }
+	return {
+		// userprops: state.userprops,
+		card: state.cards.card
+	}
 }
 
 export default connect(mapStateToProps)(Cardinfo);    

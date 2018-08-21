@@ -10,6 +10,10 @@ export const CHANGE_TITLE = 'CHANGE_TITLE';
 export const CHANGE_DESC = 'CHANGE_DESC';
 export const REMOVE_DESC = 'REMOVE_DESC';
 
+export const ADD_COMMENT = 'ADD_COMMENT';
+export const DEL_COMMENT = 'DEL_COMMENT';
+export const CHANGE_COMMENT = 'CHANGE_COMMENT';
+
 export const WIN_STATE = 'WIN_STATE';
 
 export const ADD_TODO = 'ADD_TODO';
