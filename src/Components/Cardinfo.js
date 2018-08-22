@@ -2,7 +2,9 @@ import React from 'react';
 import {connect} from 'react-redux';
 import './App.css';
 import Comments from './Comments';
-import {delCard, changeTitle, changeDesc, removeDesc, delTaskComments} from '../Actions/Actions';
+import {delCard, changeTitle, changeDesc, removeDesc} from '../reducers/CardReducer';
+import {delTaskComments} from '../reducers/CommentReducer';
+
 import Darkback from './Darkback';
 
 class Cardinfo extends React.Component {

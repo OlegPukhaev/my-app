@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {changeComment, addComment, delComment} from '../Actions/Actions';
+import {changeComment, addComment, delComment} from '../reducers/CommentReducer';
 import './App.css';
 import { deleteData, saveData, getData} from '../functions/Functions';
 

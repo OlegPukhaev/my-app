@@ -4,7 +4,7 @@ import './App.css';
 import Addcard from './Addcard';
 import Cardlist from './Cardlist';
 import Collname from './Collname';
-import {winStateToggler} from '../Actions/Actions';
+import {winState} from '../reducers/winStateToggler';
 
 class Content extends React.Component {
     constructor () {
@@ -14,11 +14,11 @@ class Content extends React.Component {
     }
 
     handlerClick(event){
-        this.winStateToggler();
+        this.winState();
         this.setState({addcardid: event.target.id});
     }
     
-    winStateToggler = () => this.props.dispatch(winStateToggler(true, this.props.tabid));
+    winState = () => this.props.dispatch(winState(true, this.props.tabid));
 
     render() {
         return (

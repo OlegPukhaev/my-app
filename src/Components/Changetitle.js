@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import './App.css';
-import {showFormColname, editColname} from './../Actions/Actions'
+import {showFormColname, editColname} from './../reducers/tabReducer'
 
 class Changetitle extends React.Component {
     constructor (props) {

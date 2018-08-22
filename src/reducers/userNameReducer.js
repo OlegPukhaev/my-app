@@ -1,8 +1,16 @@
-import { ADD_USER } from "../constans";
+const ADD_USER = 'ADD_USER';
 
 let initialState = {
     activeWin: true,
     userName: "User"
+}
+
+export let addUser = (value) => {
+    return {
+        type: ADD_USER, 
+        togler: false,
+        payload: value
+    }
 }
 
 let userNameReducer = (state = initialState, action) => {

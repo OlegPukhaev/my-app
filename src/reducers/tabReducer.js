@@ -1,4 +1,10 @@
-import { EDIT_COL1, EDIT_COL2, EDIT_COL3, EDIT_COL4, SHOW_FORM } from "../constans";
+// import { EDIT_COL1, EDIT_COL2, EDIT_COL3, EDIT_COL4, SHOW_FORM } from "../constans";
+
+const EDIT_COL1 = 'EDIT_COL1';
+const EDIT_COL2 = 'EDIT_COL2';
+const EDIT_COL3 = 'EDIT_COL3';
+const EDIT_COL4 = 'EDIT_COL4';
+const SHOW_FORM = 'SHOW_FORM';
 
 let initialState = {
     formstate: null,
@@ -11,6 +17,36 @@ let initialState = {
     colid4: "tab4",
     colname4: "Done"
 }
+
+export let showFormColname = (value) => {
+    return {
+      type: SHOW_FORM, 
+       payload: value
+    }
+}
+
+export let editColname = (value, id) => {
+    let typeid;
+    switch (id) {
+        case "tab1": 
+            typeid = EDIT_COL1
+         break;       
+        case "tab2": 
+            typeid = EDIT_COL2
+            break;       
+        case "tab3": 
+            typeid = EDIT_COL3
+         break;       
+        case "tab4": 
+            typeid = EDIT_COL4
+         break;       
+    }
+    return {
+        type: typeid, 
+        payload: value
+    }
+}
+
 
 let tabReducer = (state = initialState, action) => {
     switch (action.type) {

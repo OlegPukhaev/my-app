@@ -1,7 +1,10 @@
-import { ADD_COMMENT, DEL_COMMENT, CHANGE_COMMENT, DELL_TASK_COMMENT } from "../constans";
+// import { ADD_COMMENT, DEL_COMMENT, CHANGE_COMMENT, DELL_TASK_COMMENT } from "../constans";
+const ADD_COMMENT = 'ADD_COMMENT';
+const DEL_COMMENT = 'DEL_COMMENT';
+const CHANGE_COMMENT = 'CHANGE_COMMENT';
+const DELL_TASK_COMMENT = 'DELL_TASK_COMMENT';
 
 let initialState = {
-
     comments: [ 
         {
             taskid:1,
@@ -46,37 +49,66 @@ let initialState = {
         
     ]
 }
-    
+ 
+export let addComment = (value) => {
+  return {
+    type: ADD_COMMENT, 
+    payload: value,
+  }
+}
+  
+  export let delComment = (value) => {
+    return {
+      type: DEL_COMMENT, 
+      payload: value,
+    }
+  }
+  
+  export let changeComment = (value, id, username) => {
+    return {
+      type: CHANGE_COMMENT, 
+      payload: value,
+      commentid: id,
+      user: username,
+    }
+  }
+  
+  export let delTaskComments = (value) => {
+    return {
+      type: DELL_TASK_COMMENT,
+      payload: value
+    } 
+  }
 
 let CommentReducer = (state = initialState, action) => {
 		var array={};
     switch (action.type) {
-        case ADD_COMMENT: 
-            return state = {...state, comments: [...state.comments, action.payload]}
-            break;
-        case DEL_COMMENT:
-            state.comments.splice(action.payload,1);
-        return state = {
-                ...state,
-                comments: [...state.comments, state.comments]
-            }
-            break;
-        case DELL_TASK_COMMENT:
-						array = state.comments.filter(function(item){return item.taskid != action.payload;});
-        return state = {
-                ...state,
-                comments: array
-							}
-            break;
-        case CHANGE_COMMENT:
-            state.comments[action.commentid].comment = action.payload;
-            state.comments[action.commentid].autor = action.user;
-        return state = {
+      case ADD_COMMENT: 
+        return state = {...state, comments: [...state.comments, action.payload]}
+        break;
+      case DEL_COMMENT:
+          state.comments.splice(action.payload,1);
+      return state = {
             ...state,
             comments: [...state.comments, state.comments]
-        }
-        break;
-        default: return state;
+          }
+          break;
+      case DELL_TASK_COMMENT:
+          array = state.comments.filter(function(item){return item.taskid != action.payload;});
+      return state = {
+              ...state,
+              comments: array
+            }
+          break;
+      case CHANGE_COMMENT:
+          state.comments[action.commentid].comment = action.payload;
+          state.comments[action.commentid].autor = action.user;
+      return state = {
+          ...state,
+          comments: [...state.comments, state.comments]
+      }
+      break;
+      default: return state;
     }
 };
 

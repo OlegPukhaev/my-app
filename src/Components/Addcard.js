@@ -3,7 +3,8 @@ import {connect} from 'react-redux';
 import './App.css';
 // import { saveData, getData } from './../functions/Functions';
 import Darkback from './Darkback';
-import {winStateToggler, addCard} from '../Actions/Actions';
+import {winStateToggler} from '../Actions/Actions';
+import {addCard} from '../reducers/CardReducer';
 
 class Addcard extends React.Component {
     constructor (props) {

@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import './App.css';
-import {showFormColname} from './../Actions/Actions'
+import {showFormColname} from './../reducers/tabReducer'
 import Changetitle from './Changetitle';
 
 class Collname extends React.Component {

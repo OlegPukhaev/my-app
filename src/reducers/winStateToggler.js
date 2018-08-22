@@ -1,8 +1,16 @@
-import { WIN_STATE } from "../constans";
+const WIN_STATE = 'WIN_STATE';
 
 let initialState = {
     addCardWinState: false,
     addcardid: null
+}
+
+export let winState = (value, cardid) => {
+	return {
+			type: WIN_STATE, 
+			payload: value,
+			addci: cardid
+	}
 }
 
 let winStateToggler = (state = initialState, action) => {

@@ -1,6 +1,6 @@
 import React  from 'react';
 import {connect} from 'react-redux';
-import addUser from './../Actions/Actions'; 
+import {addUser} from './../reducers/userNameReducer'; 
 import './App.css';
 import Darkback from './Darkback';
 

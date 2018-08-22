@@ -1,4 +1,8 @@
-import { ADD_CARD, DEL_CARD, CHANGE_TITLE, CHANGE_DESC, REMOVE_DESC } from "../constans";
+const ADD_CARD = 'ADD_CARD';
+const DEL_CARD = 'DEL_CARD';
+const CHANGE_TITLE = 'CHANGE_TITLE';
+const CHANGE_DESC = 'CHANGE_DESC';
+const REMOVE_DESC = 'REMOVE_DESC';
 
 let initialState = {
     card :  
@@ -47,6 +51,43 @@ let initialState = {
             }
         ]
     }
+
+export let addCard = (value) => {
+    return {
+        type: ADD_CARD, 
+        payload: value
+    }
+}
+
+export let delCard = (value) => {
+    return {
+        type: DEL_CARD, 
+        payload: value
+    }
+}
+
+export let changeTitle = (value, id) => {
+    return {
+        type: CHANGE_TITLE, 
+        payload: value,
+        cardid: id
+    }
+}
+
+export let changeDesc = (value, id) => {
+    return {
+        type: CHANGE_DESC, 
+        payload: value,
+        cardid: id
+    }
+}
+
+export let removeDesc = (id) => {
+    return {
+        type: REMOVE_DESC, 
+        cardid: id
+    }
+}
 
 let CardReducer = (state = initialState, action) => {
     switch (action.type) {
