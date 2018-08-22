@@ -1,4 +1,3 @@
-// import { EDIT_COL1, EDIT_COL2, EDIT_COL3, EDIT_COL4, SHOW_FORM } from "../constans";
 
 const EDIT_COL1 = 'EDIT_COL1';
 const EDIT_COL2 = 'EDIT_COL2';

@@ -5,26 +5,29 @@ let initialState = {
     userName: "User"
 }
 
-export let addUser = (value) => {
-    return {
+export function addUser(value) {
+    return dispatch => {
+      dispatch({
         type: ADD_USER, 
         togler: false,
         payload: value
+      });
+    };
+  }
+
+  const actionsMap = {
+    [ADD_USER]: (state, action) => {
+      return {
+        ...state,
+        userName: action.payload,
+        activeWin: action.togler
+
+      };
     }
-}
+  };
 
-let userNameReducer = (state = initialState, action) => {
-
-    switch (action.type) {
-        case ADD_USER: 
-           return state = {
-                ...state,
-                userName: action.payload,
-                activeWin: action.togler
-            }
-            break;
-        default: return state;
-    }
-};
-
-export default userNameReducer;
+export default function userNameReducer(state = initialState, action) {
+    const reduceFn = actionsMap[action.type];
+    if (!reduceFn) return state;
+    return reduceFn(state, action);
+  }

@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import './App.css';
 // import { saveData, getData } from './../functions/Functions';
 import Darkback from './Darkback';
-import {winStateToggler} from '../Actions/Actions';
+import {winState} from '../reducers/winStateToggler';
 import {addCard} from '../reducers/CardReducer';
 
 class Addcard extends React.Component {
@@ -35,7 +35,7 @@ class Addcard extends React.Component {
         this.setState({value: event.target.value});
     }
 
-    winStateToggler = () => this.props.dispatch(winStateToggler(false));
+    winState = () => this.props.dispatch(winState(false));
     addCard = (value) => this.props.dispatch(addCard(value));
 
     render() {
