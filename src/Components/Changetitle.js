@@ -14,7 +14,6 @@ class Changetitle extends React.Component {
 
     handlerClick(){
         if (this.state.colltitle !== ""){
-            // alert(this.props.id);
             this.editColname(this.state.colltitle, this.props.id);
             this.showFormColname(false);
             

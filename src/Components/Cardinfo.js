@@ -8,12 +8,12 @@ import Darkback from './Darkback';
 class Cardinfo extends React.Component {
     constructor (props) {
         super(props)
-        this.state =    { 
-                            showEditTitle : "hide",
-                            showEditDesc : "hide",
-														tmptext: "",
-														commentindex : null
-                        }
+        this.state = { 
+                        showEditTitle : "hide",
+                        showEditDesc : "hide", 
+                        tmptext: "",
+                        commentindex : null
+                      }
 
         this.taskid = this.props.card[this.props.cardid].taskid   
         this.handlerClick = this.handlerClick.bind(this)
