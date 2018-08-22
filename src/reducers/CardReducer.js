@@ -52,77 +52,93 @@ let initialState = {
         ]
     }
 
-export let addCard = (value) => {
-    return {
+export function addCard(value) {
+    return dispatch => {
+      dispatch({
         type: ADD_CARD, 
-        payload: value
-    }
+        payload: value      
+      });
+    };
+  }
+
+export function delCard(value) {
+	return dispatch => {
+		dispatch({
+			type: DEL_CARD, 
+			payload: value		 
+		});
+	};
 }
 
-export let delCard = (value) => {
-    return {
-        type: DEL_CARD, 
-        payload: value
-    }
+export function changeTitle(value, id) {
+	return dispatch => {
+		dispatch({
+			type: CHANGE_TITLE, 
+			payload: value,
+			cardid: id	 
+		});
+	};
 }
 
-export let changeTitle = (value, id) => {
-    return {
-        type: CHANGE_TITLE, 
-        payload: value,
-        cardid: id
-    }
+export function changeDesc(value, id) {
+	return dispatch => {
+		dispatch({
+			type: CHANGE_DESC, 
+			payload: value,
+			cardid: id	 
+		});
+	};
 }
 
-export let changeDesc = (value, id) => {
-    return {
-        type: CHANGE_DESC, 
-        payload: value,
-        cardid: id
-    }
+export function removeDesc(id) {
+	return dispatch => {
+		dispatch({
+			type: REMOVE_DESC, 
+			cardid: id
+		});
+	};
 }
 
-export let removeDesc = (id) => {
-    return {
-        type: REMOVE_DESC, 
-        cardid: id
-    }
-}
+const actionsMap = {
 
-let CardReducer = (state = initialState, action) => {
-    switch (action.type) {
-        
-        case ADD_CARD: 
-            return state = {...state, card: [...state.card, action.payload]}    
-        break;
-        case DEL_CARD:
-            state.card.splice(action.payload,1);
-        return state = {
-            ...state,
-            card: [...state.card, state.card]
-        }
-        break;
-        case CHANGE_TITLE:
-            state.card[action.cardid].title = action.payload;
-        return state = {
-            ...state,
-            card: [...state.card, state.card]
-        }
-        case CHANGE_DESC:
-            state.card[action.cardid].desc = action.payload;
-        return state = {
-            ...state,
-            card: [...state.card, state.card]
-        }
-        case REMOVE_DESC:
-            state.card[action.cardid].desc = "";
-        return state = {
-            ...state,
-            card: [...state.card, state.card]
-        }
-        break;
-        default: return state;
-    }
+	[ADD_CARD]: (state, action) => {
+		return {
+					...state, 
+					card: [...state.card, action.payload]
+		};
+	},
+	[DEL_CARD]: (state, action) => {
+		state.card.splice(action.payload,1);
+		return {
+								...state,
+								card: [...state.card, state.card]
+		};
+	},
+	[CHANGE_TITLE]: (state, action) => {
+		state.card[action.cardid].title = action.payload;
+		return {
+								...state,
+								card: [...state.card, state.card]
+		};
+	},
+	[CHANGE_DESC]: (state, action) => {
+			state.card[action.cardid].desc = action.payload;
+		return {
+								...state,
+								card: [...state.card, state.card]
+				};
+		},
+	[REMOVE_DESC]: (state, action) => {
+		state.card[action.cardid].desc = "";
+		return {
+					...state,
+					card: [...state.card, state.card]
+				};
+		}
 };
 
-export default CardReducer;
+export default function CardReducer(state = initialState, action) {
+    const reduceFn = actionsMap[action.type];
+    if (!reduceFn) return state;
+    return reduceFn(state, action);
+  }

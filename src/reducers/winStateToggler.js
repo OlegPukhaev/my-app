@@ -5,26 +5,28 @@ let initialState = {
     addcardid: null
 }
 
-export let winState = (value, cardid) => {
-	return {
-			type: WIN_STATE, 
-			payload: value,
-			addci: cardid
-	}
-}
+export function winState(value, cardid) {
+    return dispatch => {
+      dispatch({
+        type: WIN_STATE, 
+        payload: value,
+        addci: cardid
+      });
+    };
+  }
 
-let winStateToggler = (state = initialState, action) => {
-    switch (action.type) {
-        
-        case WIN_STATE: 
-           return state = {
-                ...state,
-                addCardWinState: action.payload,
-                addcardid: action.addci
-            }
-            break;
-        default: return state;
+const actionsMap = {
+    [WIN_STATE]: (state, action) => {
+      return {
+        ...state,
+        addCardWinState: action.payload,
+        addcardid: action.addci   
+      };
     }
-};
+  };
 
-export default winStateToggler;
+export default function winStateToggler(state = initialState, action) {
+    const reduceFn = actionsMap[action.type];
+    if (!reduceFn) return state;
+    return reduceFn(state, action);
+  }

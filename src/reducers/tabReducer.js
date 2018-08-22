@@ -17,14 +17,16 @@ let initialState = {
     colname4: "Done"
 }
 
-export let showFormColname = (value) => {
-    return {
-      type: SHOW_FORM, 
-       payload: value
-    }
-}
+export function showFormColname(value) {
+    return dispatch => {
+      dispatch({
+        type: SHOW_FORM, 
+        payload: value      
+      });
+    };
+  }
 
-export let editColname = (value, id) => {
+export function editColname(value, id) {
     let typeid;
     switch (id) {
         case "tab1": 
@@ -40,48 +42,49 @@ export let editColname = (value, id) => {
             typeid = EDIT_COL4
          break;       
     }
-    return {
+    return dispatch => {
+      dispatch({
         type: typeid, 
         payload: value
+      });
+    };
+  }
+
+  const actionsMap = {
+    [SHOW_FORM]: (state, action) => {
+      return {
+        ...state,
+        formstate: action.payload
+      };
+    },
+    [EDIT_COL1]: (state, action) => {
+      return {
+        ...state,
+        colname1: action.payload
+      };
+    },
+    [EDIT_COL2]: (state, action) => {
+      return {
+        ...state,
+        colname2: action.payload
+      };
+    },
+    [EDIT_COL3]: (state, action) => {
+      return {
+        ...state,
+        colname3: action.payload
+      };
+    },
+    [EDIT_COL4]: (state, action) => {
+      return {
+        ...state,
+        colname4: action.payload
+      };
     }
-}
+  };
 
-
-let tabReducer = (state = initialState, action) => {
-    switch (action.type) {
-        case SHOW_FORM: 
-           return state = {
-                ...state,
-                formstate: action.payload
-                
-            }
-            break;
-        case EDIT_COL1: 
-           return state = {
-                ...state,
-                colname1: action.payload
-            }
-            break;
-        case EDIT_COL2: 
-           return state = {
-                ...state,
-                colname2: action.payload
-            }
-            break;
-        case EDIT_COL3: 
-           return state = {
-                ...state,
-                colname3: action.payload
-            }
-            break;
-        case EDIT_COL4: 
-           return state = {
-                ...state,
-                colname4: action.payload
-            }
-            break;
-        default: return state;
-    }
-};
-
-export default tabReducer;
+export default function tabReducer(state = initialState, action) {
+    const reduceFn = actionsMap[action.type];
+    if (!reduceFn) return state;
+    return reduceFn(state, action);
+  }

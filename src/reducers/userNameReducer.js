@@ -27,7 +27,7 @@ export function addUser(value) {
   };
 
 export default function userNameReducer(state = initialState, action) {
-    const reduceFn = actionsMap[action.type];
-    if (!reduceFn) return state;
-    return reduceFn(state, action);
-  }
+  const reduceFn = actionsMap[action.type];
+  if (!reduceFn) return state;
+  return reduceFn(state, action);
+}

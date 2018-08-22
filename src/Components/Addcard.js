@@ -27,7 +27,7 @@ class Addcard extends React.Component {
                 
             if (this.state.value) {
                 this.addCard(obj1);
-                this.winStateToggler();
+                this.winState();
             } else this.winStateToggler();
     }
 

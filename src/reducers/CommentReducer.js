@@ -49,66 +49,77 @@ let initialState = {
     ]
 }
  
-export let addComment = (value) => {
-  return {
-    type: ADD_COMMENT, 
-    payload: value,
-  }
-}
-  
-  export let delComment = (value) => {
-    return {
-      type: DEL_COMMENT, 
-      payload: value,
-    }
-  }
-  
-  export let changeComment = (value, id, username) => {
-    return {
-      type: CHANGE_COMMENT, 
-      payload: value,
-      commentid: id,
-      user: username,
-    }
-  }
-  
-  export let delTaskComments = (value) => {
-    return {
-      type: DELL_TASK_COMMENT,
-      payload: value
-    } 
+export function addComment(value) {
+    return dispatch => {
+      dispatch({
+        type: ADD_COMMENT, 
+        payload: value
+      });
+    };
   }
 
-let CommentReducer = (state = initialState, action) => {
-		var array={};
-    switch (action.type) {
-      case ADD_COMMENT: 
-        return state = {...state, comments: [...state.comments, action.payload]}
-        break;
-      case DEL_COMMENT:
-          state.comments.splice(action.payload,1);
-      return state = {
-            ...state,
-            comments: [...state.comments, state.comments]
-          }
-          break;
-      case DELL_TASK_COMMENT:
-          array = state.comments.filter(function(item){return item.taskid != action.payload;});
-      return state = {
-              ...state,
-              comments: array
-            }
-          break;
-      case CHANGE_COMMENT:
-          state.comments[action.commentid].comment = action.payload;
-          state.comments[action.commentid].autor = action.user;
-      return state = {
+  export function delComment(value) {
+    return dispatch => {
+      dispatch({
+        type: DEL_COMMENT, 
+        payload: value
+      });
+    };
+  }
+
+  export function changeComment(value, id, username) {
+    return dispatch => {
+      dispatch({
+        type: CHANGE_COMMENT, 
+        payload: value,
+        commentid: id,
+        user: username      
+      });
+    };
+  }
+
+  export function delTaskComments(value) {
+    return dispatch => {
+      dispatch({
+        type: DELL_TASK_COMMENT,
+        payload: value
+      });
+    };
+  }
+
+  const actionsMap = {
+    [ADD_COMMENT]: (state, action) => {
+      return {
+        ...state, 
+        comments: [...state.comments, action.payload]
+      };
+    },
+    [DEL_COMMENT]: (state, action) => {
+        state.comments.splice(action.payload,1);
+        return {
           ...state,
           comments: [...state.comments, state.comments]
-      }
-      break;
-      default: return state;
+        };
+    },
+    [DELL_TASK_COMMENT]: (state, action) => {
+      var array = state.comments.filter(function(item){return item.taskid != action.payload;});
+      return {
+        ...state,
+        comments: array
+      };
+    },
+    [CHANGE_COMMENT]: (state, action) => {
+      state.comments[action.commentid].comment = action.payload;
+      state.comments[action.commentid].autor = action.user;
+      return {
+        ...state,
+        comments: [...state.comments, state.comments]
+      };
     }
-};
+  };
 
-export default CommentReducer;
+export default function CommentReducer(state = initialState, action) {
+    const reduceFn = actionsMap[action.type];
+    if (!reduceFn) return state;
+    return reduceFn(state, action);
+  }
