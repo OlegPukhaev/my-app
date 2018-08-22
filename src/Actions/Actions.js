@@ -13,7 +13,8 @@ import {
         CHANGE_TITLE,
         ADD_COMMENT,
         DEL_COMMENT,
-        CHANGE_COMMENT
+				CHANGE_COMMENT,
+				DELL_TASK_COMMENT
     
     } from "../constans";
 
@@ -120,6 +121,13 @@ export let changeComment = (value, id, username) => {
       commentid: id,
       user: username,
   }
+}
+
+export let delTaskComments = (value) => {
+  return {
+		type: DELL_TASK_COMMENT,
+    payload: value
+	} 
 }
 
 

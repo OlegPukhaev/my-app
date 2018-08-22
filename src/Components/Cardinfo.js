@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import './App.css';
 import Comments from './Comments';
-import {delCard, changeTitle, changeDesc, removeDesc, delComment} from '../Actions/Actions';
+import {delCard, changeTitle, changeDesc, removeDesc, delTaskComments} from '../Actions/Actions';
 import Darkback from './Darkback';
 
 class Cardinfo extends React.Component {
@@ -22,8 +22,7 @@ class Cardinfo extends React.Component {
         this.onChangedesc = this.onChangedesc.bind(this)
         this.handleKeyDown = this.handleKeyDown.bind(this)
         this.show = this.show.bind(this)
-				this.keyBoardevent = this.keyBoardevent.bind(this)
-				this.delComment = this.delComment.bind(this)
+		this.keyBoardevent = this.keyBoardevent.bind(this)
     }
 
     handlerClick () {
@@ -32,8 +31,9 @@ class Cardinfo extends React.Component {
 
     delCard = (value) => this.props.dispatch(delCard(value));
 
-    onclickDelete () {
-				this.delCard(this.props.cardid);
+    onclickDelete (event) {
+        this.delCard(this.props.cardid);
+        this.delTaskComments(event.target.id);
         this.props.updateData("hide");
     }
 
@@ -48,7 +48,7 @@ class Cardinfo extends React.Component {
     changeTitle = (value, id) => this.props.dispatch(changeTitle(value, id));
     changeDesc = (value, id) => this.props.dispatch(changeDesc(value, id));
     removeDesc = () => this.props.dispatch(removeDesc(this.props.cardid));
-    delComment = (id) => this.props.dispatch(delComment(id));
+    delTaskComments = (id) => this.props.dispatch(delTaskComments(id));
 
     handleKeyDown (event){
             if ((event.key === "Enter") && (this.state.tmptext !== "")) {

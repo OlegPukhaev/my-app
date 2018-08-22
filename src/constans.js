@@ -9,6 +9,7 @@ export const DEL_CARD = 'DEL_CARD';
 export const CHANGE_TITLE = 'CHANGE_TITLE';
 export const CHANGE_DESC = 'CHANGE_DESC';
 export const REMOVE_DESC = 'REMOVE_DESC';
+export const DELL_TASK_COMMENT = 'DELL_TASK_COMMENT';
 
 export const ADD_COMMENT = 'ADD_COMMENT';
 export const DEL_COMMENT = 'DEL_COMMENT';

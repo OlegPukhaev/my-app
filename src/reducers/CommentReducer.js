@@ -1,4 +1,4 @@
-import { ADD_COMMENT, DEL_COMMENT, CHANGE_COMMENT } from "../constans";
+import { ADD_COMMENT, DEL_COMMENT, CHANGE_COMMENT, DELL_TASK_COMMENT } from "../constans";
 
 let initialState = {
 
@@ -49,6 +49,7 @@ let initialState = {
     
 
 let CommentReducer = (state = initialState, action) => {
+		var array={};
     switch (action.type) {
         case ADD_COMMENT: 
             return state = {...state, comments: [...state.comments, action.payload]}
@@ -60,10 +61,16 @@ let CommentReducer = (state = initialState, action) => {
                 comments: [...state.comments, state.comments]
             }
             break;
+        case DELL_TASK_COMMENT:
+						array = state.comments.filter(function(item){return item.taskid != action.payload;});
+        return state = {
+                ...state,
+                comments: array
+							}
+            break;
         case CHANGE_COMMENT:
             state.comments[action.commentid].comment = action.payload;
             state.comments[action.commentid].autor = action.user;
-            console.log(state.comments[action.commentid].comment);
         return state = {
             ...state,
             comments: [...state.comments, state.comments]
